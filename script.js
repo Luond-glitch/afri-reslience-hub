@@ -135,3 +135,45 @@ if (logoContainer && logoImg) {
     logoImg.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1)';
   });
 }
+// Image slider with dots (reusable)
+document.querySelectorAll(".slider").forEach(slider => {
+  const images = slider.querySelectorAll("img");
+  const dotsContainer = slider.querySelector(".slider-dots");
+
+  // Safety check
+  if (!images.length || !dotsContainer) return;
+
+  let current = 0;
+
+  // Activate first image
+  images[0].classList.add("active");
+
+  // Create dots
+  images.forEach((_, index) => {
+    const dot = document.createElement("span");
+    if (index === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener("click", () => {
+      images[current].classList.remove("active");
+      dotsContainer.children[current].classList.remove("active");
+
+      current = index;
+
+      images[current].classList.add("active");
+      dotsContainer.children[current].classList.add("active");
+    });
+  });
+
+  // Auto slide
+  setInterval(() => {
+    images[current].classList.remove("active");
+    dotsContainer.children[current].classList.remove("active");
+
+    current = (current + 1) % images.length;
+
+    images[current].classList.add("active");
+    dotsContainer.children[current].classList.add("active");
+  }, 3500);
+});
+
