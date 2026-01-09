@@ -48,17 +48,21 @@ document.querySelectorAll('.about-image, .vm-card, .initiative-card, .stat-item'
 });
 
 // Animate stats counting
-const animateCounter = (element, start, end, duration) => {
+const animateCounter = (element, start, end, duration, suffix = '') => {
   let startTimestamp = null;
+
   const step = (timestamp) => {
     if (!startTimestamp) startTimestamp = timestamp;
     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
     const value = Math.floor(progress * (end - start) + start);
-    element.textContent = value;
+
+    element.textContent = value + suffix;
+
     if (progress < 1) {
       window.requestAnimationFrame(step);
     }
   };
+
   window.requestAnimationFrame(step);
 };
 
@@ -66,18 +70,15 @@ const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const statItems = entry.target.querySelectorAll('.stat-item');
-      const values = [1000, 3, 10, 7];
-      
-      statItems.forEach((item, index) => {
+
+      statItems.forEach(item => {
         const numberElement = item.querySelector('h3');
-        const targetValue = values[index];
-        
-        // Check if the element contains a number
-        if (!isNaN(parseInt(numberElement.textContent))) {
-          animateCounter(numberElement, 0, targetValue, 1500);
-        }
+        const targetValue = parseInt(numberElement.dataset.target);
+        const suffix = numberElement.dataset.suffix || '';
+
+        animateCounter(numberElement, 0, targetValue, 1500, suffix);
       });
-      
+
       statsObserver.unobserve(entry.target);
     }
   });
