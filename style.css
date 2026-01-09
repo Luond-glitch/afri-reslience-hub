@@ -241,7 +241,7 @@
 
   /* Logo text styles */
   .logo-text {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin-left: 10px;
   }
