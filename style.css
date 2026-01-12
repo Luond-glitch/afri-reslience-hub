@@ -235,6 +235,7 @@ header .container {
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  padding-left: 30px;
 }
 
 /* Logo text */
@@ -255,6 +256,7 @@ header .container {
   margin: 0;
   letter-spacing: -0.5px;
   transition: none; /* remove hover */
+  padding-left: 20px;
 }
 
 /* Tagline */
