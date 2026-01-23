@@ -1,22 +1,115 @@
 document.getElementById('year').textContent = new Date().getFullYear();
-// Mobile Navigation Toggle
+/* =================================
+   MOBILE NAVIGATION TOGGLE
+================================= */
+
 const mobileToggle = document.getElementById('mobileToggle');
 const mainNav = document.getElementById('mainNav');
 
 mobileToggle.addEventListener('click', () => {
+
   mainNav.classList.toggle('active');
-  mobileToggle.innerHTML = mainNav.classList.contains('active') 
-    ? '<i class="fas fa-times"></i>' 
+
+  // Toggle icon
+  mobileToggle.innerHTML = mainNav.classList.contains('active')
+    ? '<i class="fas fa-times"></i>'
     : '<i class="fas fa-bars"></i>';
+
 });
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('active');
-    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+/* =================================
+   MOBILE DROPDOWN ACCORDION
+================================= */
+
+const dropdownLinks = document.querySelectorAll('.dropdown > a');
+
+dropdownLinks.forEach(link => {
+
+  link.addEventListener('click', function (e) {
+
+    // Only on mobile
+    if (window.innerWidth <= 992) {
+
+      e.preventDefault();
+
+      const parent = this.parentElement;
+
+      // Close other dropdowns
+      document.querySelectorAll('.dropdown').forEach(item => {
+        if (item !== parent) {
+          item.classList.remove('open');
+        }
+      });
+
+      // Toggle current dropdown
+      parent.classList.toggle('open');
+
+    }
+
   });
+
 });
+
+
+/* =================================
+   CLOSE MENU WHEN LINK CLICKED
+   (EXCEPT DROPDOWN HEADERS)
+================================= */
+
+document.querySelectorAll('nav a').forEach(link => {
+
+  link.addEventListener('click', (e) => {
+
+    const parent = link.parentElement;
+
+    // If dropdown header on mobile, don't close menu
+    if (
+      window.innerWidth <= 992 &&
+      parent.classList.contains('dropdown')
+    ) {
+      return;
+    }
+
+    // Close menu
+    mainNav.classList.remove('active');
+
+    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+    // Close all dropdowns
+    document.querySelectorAll('.dropdown').forEach(item => {
+      item.classList.remove('open');
+    });
+
+  });
+
+});
+
+
+/* =================================
+   RESET ON SCREEN RESIZE
+================================= */
+
+window.addEventListener('resize', () => {
+
+  // Desktop view
+  if (window.innerWidth > 992) {
+
+    // Close mobile menu
+    mainNav.classList.remove('active');
+
+    // Reset icon
+    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+    // Close dropdowns
+    document.querySelectorAll('.dropdown').forEach(item => {
+      item.classList.remove('open');
+    });
+
+  }
+
+});
+
 
 // Header scroll effect
 const header = document.getElementById('header');
