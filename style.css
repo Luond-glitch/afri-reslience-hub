@@ -418,7 +418,24 @@ nav ul li .btn-primary {
 .dropdown:hover i {
   transform: rotate(180deg);
 }
+/* Desktop dropdown spacing fix */
+@media (min-width: 992px) {
 
+  #mainNav .dropdown-menu {
+    padding: 5px 0;
+  }
+
+  #mainNav .dropdown-menu li {
+    margin: 0;
+  }
+
+  #mainNav .dropdown-menu li a {
+    padding: 6px 15px;   /* Reduce vertical padding */
+    line-height: 1.3;   /* Reduce text height */
+    font-size: 14px;    
+  }
+
+}
 
 /* =================================
    MOBILE TOGGLE
