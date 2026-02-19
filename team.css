@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(145deg, #f4f0e8 0%, #e3f0eb 80%);
+    color: #1f3d42;
+    line-height: 1.5;
+    padding: 1.8rem 2rem 0.5rem;
+  }
+
+  .wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  /* header */
+  .dept-header {
+    text-align: center;
+    margin: 0.5rem 0 2.5rem;
+  }
+  .dept-header h1 {
+    font-size: 3.4rem;
+    font-weight: 700;
+    background: linear-gradient(145deg, #1f5b63, #b86f4b, #2d897a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+  }
+  .dept-header p {
+    background: rgba(45, 105, 100, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 0.7rem 2rem;
+    border-radius: 60px;
+    display: inline-block;
+    color: #26635e;
+    border: 1px solid rgba(70, 140, 120, 0.3);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  /* decision flow banner (same as before, polished) */
+  .flow-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: rgba(255, 250, 240, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 80px 20px 80px 20px;
+    padding: 2rem 2.5rem;
+    margin: 2rem 0 3rem;
+    border: 1px solid rgba(42, 157, 143, 0.5);
+    box-shadow: 0 20px 35px -20px #174e49;
+  }
+  .flow-card {
+    flex: 1 1 260px;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(4px);
+    padding: 1.3rem 1.8rem;
+    border-radius: 48px 12px 48px 12px;
+    border-left: 6px solid;
+  }
+  .flow-card:first-child { border-left-color: #264653; }
+  .flow-card:last-child { border-left-color: #e76f51; }
+  .flow-card h3 { font-size: 1.4rem; margin-bottom: 1rem; display: flex; gap: 8px; }
+  .flow-card ul { list-style: none; }
+  .flow-card li { margin-bottom: 0.5rem; display: flex; gap: 8px; font-size: 0.95rem; }
+  .flow-card i { color: #2a9d8f; width: 1.2rem; }
+
+  /* section titles */
+  .section-title {
+    margin: 3.5rem 0 1.8rem;
+  }
+  .section-title h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #264653, #2a9d8f);
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(to right, #e9c46a, #2a9d8f) 1;
+    padding-bottom: 5px;
+  }
+  .section-title i {
+    color: #b86f4b;
+    margin-right: 10px;
+  }
+
+  /* main grid for core managerial */
+  .dept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 2.2rem;
+    margin: 2rem 0 3rem;
+  }
+
+  /* department card */
+  .dept-card {
+    background: rgba(255, 248, 240, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 3rem 1.2rem 3rem 1.2rem;
+    padding: 1.8rem 1.5rem 2rem;
+    box-shadow: 0 25px 40px -20px #1b5c55, 0 0 0 1px rgba(250, 215, 170, 0.5) inset;
+    transition: all 0.35s cubic-bezier(0.1, 0.7, 0.3, 1);
+    border: 1px solid rgba(255, 225, 190, 0.8);
+    position: relative;
+    overflow: hidden;
+  }
+  .dept-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 252, 240, 0.9);
+    box-shadow: 0 35px 55px -20px #0f554b, 0 0 0 2px #e9c46a inset;
+  }
+
+  /* subtle animated light */
+  .dept-card::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 220, 150, 0.2) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+  .dept-card:hover::before {
+    opacity: 1;
+  }
+
+  /* ----- TEAM LEAD SECTION (image + name) ----- */
+  .team-lead {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.2rem 0 1.5rem;
+    background: rgba(255, 235, 210, 0.4);
+    backdrop-filter: blur(4px);
+    padding: 0.8rem 1rem 0.8rem 0.8rem;
+    border-radius: 60px 20px 60px 20px;
+    border: 1px solid #f4cda6;
+    transition: 0.2s;
+  }
+  .team-lead:hover {
+    background: rgba(252, 225, 180, 0.7);
+    border-color: #e9c46a;
+  }
+  .lead-img {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 6px 12px rgba(80, 70, 30, 0.2);
+    background: #cdb89a;
+  }
+  .lead-info {
+    flex: 1;
+  }
+  .lead-info .lead-role-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b3704b;
+    background: rgba(255,255,240,0.6);
+    display: inline-block;
+    padding: 0.15rem 0.8rem;
+    border-radius: 30px;
+    border: 1px solid #e9c46a;
+  }
+  .lead-info .lead-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1f4f55;
+    margin-top: 2px;
+  }
+  .lead-info .lead-name i {
+    color: #e68a4d;
+    font-size: 0.9rem;
+    margin-left: 5px;
+  }
+
+  .dept-icon {
+    font-size: 2.2rem;
+    color: #2a9d8f;
+    background: rgba(233, 196, 106, 0.2);
+    width: 55px;
+    height: 55px;
+    border-radius: 30% 70% 70% 30% / 30% 55% 45% 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    border: 1px solid #f4a261;
+  }
+
+  .dept-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(145deg, #19555c, #b86f4b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .role-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+  .role-list li {
+    padding: 0.45rem 0 0.45rem 0.5rem;
+    border-bottom: 1px dashed rgba(42, 157, 143, 0.2);
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.98rem;
+  }
+  .role-list i {
+    color: #e76f51;
+    width: 1.2rem;
+  }
+
+  /* TIER III (operations) */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0 2.5rem;
+  }
+  .tier-card {
+    background: rgba(245, 242, 230, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 2.5rem 1rem 2.5rem 1rem;
+    padding: 1.8rem;
+    border: 1px solid rgba(190, 165, 130, 0.4);
+    transition: 0.25s;
+  }
+  .tier-card:hover {
+    background: rgba(255, 245, 225, 0.85);
+    transform: translateY(-6px);
+    border-color: #e9c46a;
+  }
+  .tier-card h3 {
+    font-size: 1.6rem;
+    color: #1e5e60;
+    border-left: 6px solid #e9c46a;
+    padding-left: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .subrole-list {
+    list-style: none;
+  }
+  .subrole-list li {
+    padding: 0.25rem 0 0.25rem 1.4rem;
+    position: relative;
+  }
+  .subrole-list li::before {
+    content: "▹";
+    color: #2a9d8f;
+    position: absolute;
+    left: 0;
+  }
+  .tier-lead {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(220, 200, 165, 0.2);
+    border-radius: 50px 10px 50px 10px;
+    padding: 0.6rem 0.8rem;
+    margin-top: 1rem;
+    border: 1px dashed #e9c46a;
+  }
+  .tier-lead img {
+    width: 44px; height: 44px; border-radius: 50%;
+  }
+
+  .flow-footnote {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: linear-gradient(110deg, #276b60, #3f8575);
+    padding: 1.8rem 2.5rem;
+    border-radius: 80px 20px 80px 20px;
+    margin: 4rem 0 2rem;
+    color: #fff8e7;
+    justify-content: center;
+  }
+
+  .page-footer {
+    text-align: center;
+    padding: 2rem;
+    color: #235f5a;
+    border-top: 1px solid #c9ac8a;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    .dept-header h1 { font-size: 2.5rem; }
+    .team-lead .lead-name { font-size: 1.1rem; }
+  }
