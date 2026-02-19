@@ -1,93 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive leadership </title>
-<!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
- <link rel="shortcut icon" href="/favicon.ico" />
- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
- <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="mgt.css">
-</head>
-<body>
-  <div class="wrapper">
-    <div class="title-section">
-      <h1>✦ management council ✦</h1>
-      <div class="sub-head">
-        <i class="fas fa-bezier-curve" style="margin-right: 8px;"></i> policy execution · resource stewardship
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executive leadership</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/public/android-chrome-512x512.png"
+      sizes="512x512"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="public/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link rel="icon" href="/public/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/public/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="mgt.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title-section">
+        <h1>✦ management council ✦</h1>
+        <div class="sub-head">
+          <i class="fas fa-bezier-curve" style="margin-right: 8px"></i> policy
+          execution · resource stewardship
+        </div>
       </div>
+
+      <!-- ========== EXECUTIVE CARDS – EDITABLE directly in HTML ========== -->
+      <div class="card-grid">
+        <!-- 1. Executive Director (ED) – edit photo, name, role, description -->
+        <div class="exec-card">
+          <div class="photo-frame">
+            <!-- replace src with actual executive photo (e.g., "images/ed-headshot.jpg") -->
+            <img src="logo.jpeg" alt="Executive Director" />
+          </div>
+          <div class="exec-name">NAME</div>
+          <div class="exec-role">Executive Director (ED)</div>
+          <ul class="exec-description">
+            <li>
+              <i class="fas fa-caret-right"></i> Chief executive and accounting
+              officer
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Implements Board decisions &
+              strategy
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Leads partnerships,
+              fundraising, donor relations
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Supervision of Secretariat &
+              Operations
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2. Deputy Director – Programs & Strategy – fully editable -->
+        <div class="exec-card">
+          <div class="photo-frame">
+            <!-- replace src with actual photo, e.g., "images/programs-dir.jpg" -->
+            <img src="logo.jpeg" alt="Deputy Director Programs" />
+          </div>
+          <div class="exec-name">NAME</div>
+          <div class="exec-role">Deputy Director – Programs & Strategy</div>
+          <ul class="exec-description">
+            <li>
+              <i class="fas fa-caret-right"></i> Oversees all programs and
+              projects
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Leads strategic planning &
+              program quality
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Coordinates cross‑program
+              integration (climate, food, inclusion)
+            </li>
+          </ul>
+        </div>
+
+        <div class="exec-card">
+          <div class="photo-frame">
+            <!-- replace with actual photo link -->
+            <img src="logo.jpeg" alt="Deputy Director Operations" />
+          </div>
+          <div class="exec-name">NAME</div>
+          <div class="exec-role">Deputy Director – Operations & Finance</div>
+          <ul class="exec-description">
+            <li>
+              <i class="fas fa-caret-right"></i> Oversees finance, HR,
+              procurement, admin, logistics
+            </li>
+            <li>
+              <i class="fas fa-caret-right"></i> Ensures operational efficiency
+              & compliance
+            </li>
+            <li><i class="fas fa-caret-right"></i> Supervises support units</li>
+          </ul>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-content">
+          <span style="font-size: 2.5rem; line-height: 1">🌐</span>
+          <p style="font-size: 1.3rem; font-weight: 300; max-width: 550px">
+            institutional leadership · coordination · resource management
+          </p>
+          <div class="footer-links">
+            <a href="#"><i class="fas fa-building"></i> secretariat</a>
+            <a href="#"><i class="fas fa-handshake"></i> donors</a>
+            <a href="#"><i class="fas fa-chart-pie"></i> strategy</a>
+            <a href="#"><i class="fas fa-scale-balanced"></i> compliance</a>
+          </div>
+          <div class="footer-copy">
+            <i class="fas fa-copyright"></i> EXECUTIVE BOARD
+            <i class="fas fa-pen"></i>
+          </div>
+        </div>
+      </footer>
     </div>
-
-    <!-- ========== EXECUTIVE CARDS – EDITABLE directly in HTML ========== -->
-    <div class="card-grid">
-
-      <!-- 1. Executive Director (ED) – edit photo, name, role, description -->
-      <div class="exec-card">
-        <div class="photo-frame">
-          <!-- replace src with actual executive photo (e.g., "images/ed-headshot.jpg") -->
-          <img src="logo.jpeg" alt="Executive Director">
-        </div>
-        <div class="exec-name">NAME</div>
-        <div class="exec-role">Executive Director (ED)</div>
-        <ul class="exec-description">
-          <li><i class="fas fa-caret-right"></i> Chief executive and accounting officer</li>
-          <li><i class="fas fa-caret-right"></i> Implements Board decisions & strategy</li>
-          <li><i class="fas fa-caret-right"></i> Leads partnerships, fundraising, donor relations</li>
-          <li><i class="fas fa-caret-right"></i> Supervision of Secretariat & Operations</li>
-        </ul>
-      </div>
-
-      <!-- 2. Deputy Director – Programs & Strategy – fully editable -->
-      <div class="exec-card">
-        <div class="photo-frame">
-          <!-- replace src with actual photo, e.g., "images/programs-dir.jpg" -->
-          <img src="logo.jpeg" alt="Deputy Director Programs">
-        </div>
-        <div class="exec-name">NAME</div>
-        <div class="exec-role">Deputy Director – Programs & Strategy</div>
-        <ul class="exec-description">
-          <li><i class="fas fa-caret-right"></i> Oversees all programs and projects</li>
-          <li><i class="fas fa-caret-right"></i> Leads strategic planning & program quality</li>
-          <li><i class="fas fa-caret-right"></i> Coordinates cross‑program integration (climate, food, inclusion)</li>
-        </ul>
-      </div>
-
-      <div class="exec-card">
-        <div class="photo-frame">
-          <!-- replace with actual photo link -->
-          <img src="logo.jpeg" alt="Deputy Director Operations">
-        </div>
-        <div class="exec-name">NAME</div>
-        <div class="exec-role">Deputy Director – Operations & Finance</div>
-        <ul class="exec-description">
-          <li><i class="fas fa-caret-right"></i> Oversees finance, HR, procurement, admin, logistics</li>
-          <li><i class="fas fa-caret-right"></i> Ensures operational efficiency & compliance</li>
-          <li><i class="fas fa-caret-right"></i> Supervises support units</li>
-        </ul>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="footer-content">
-        <span style="font-size: 2.5rem; line-height: 1;">🌐</span>
-        <p style="font-size: 1.3rem; font-weight: 300; max-width: 550px;">institutional leadership · coordination · resource management</p>
-        <div class="footer-links">
-          <a href="#"><i class="fas fa-building"></i> secretariat</a>
-          <a href="#"><i class="fas fa-handshake"></i> donors</a>
-          <a href="#"><i class="fas fa-chart-pie"></i> strategy</a>
-          <a href="#"><i class="fas fa-scale-balanced"></i> compliance</a>
-        </div>
-        <div class="footer-copy">
-          <i class="fas fa-copyright"></i> EXECUTIVE BOARD <i class="fas fa-pen"></i>
-        </div>
-      </div>
-    </footer>
-  </div>
-</body>
+  </body>
 </html>
