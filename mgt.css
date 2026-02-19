@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f9efe4 0%, #f4e2d4 50%, #e0f0ed 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #1d2d3f;
+    line-height: 1.5;
+    padding: 2rem 1.5rem 0.5rem;
+  }
+
+  /* main container */
+  .wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+  }
+
+  /* header */
+  .title-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .title-section h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    background: linear-gradient(145deg, #1e5f6b, #b3704b, #d4a55c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-head {
+    background: rgba(60, 120, 110, 0.1);
+    backdrop-filter: blur(4px);
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border-radius: 60px;
+    font-weight: 500;
+    color: #2a605b;
+    border: 1px solid rgba(42, 157, 143, 0.4);
+    font-size: 1.1rem;
+    box-shadow: 0 6px 14px rgba(0, 50, 40, 0.05);
+  }
+
+  /* responsive grid — pure CSS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2rem 1.8rem;
+    margin: 3rem 0 4rem;
+  }
+
+  /* card – beautiful blending colors */
+  .exec-card {
+    background: rgba(255, 245, 235, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 2.8rem 1.2rem 2.8rem 1.2rem;
+    box-shadow: 0 25px 40px -16px rgba(25, 80, 75, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    padding: 2rem 1.6rem 2rem;
+    transition: transform 0.25s ease, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 235, 215, 0.7);
+  }
+
+  .exec-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 250, 240, 0.85);
+    box-shadow: 0 30px 50px -20px #22665e, 0 0 0 2px rgba(244, 162, 97, 0.5) inset;
+  }
+
+  /* photo container — editable (replace img src or remove and keep initials) */
+  .photo-frame {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(145deg, #e9c46a, #f4a261, #2a9d8f, #264653);
+    background-size: 200% 200%;
+    margin-bottom: 1.3rem;
+    box-shadow: 0 16px 28px -10px rgba(38, 70, 83, 0.4);
+    transition: all 0.3s;
+  }
+
+  /* editable photo: you can replace src with any image (just change the img src below) */
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #dad3cb; /* neutral fallback */
+    display: block;
+  }
+
+  /* name & role — fully editable via contenteditable? we want simple: just change text in HTML */
+  .exec-name {
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e4e5c, #aa6d4b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0.2rem 0 0.1rem;
+    line-height: 1.2;
+  }
+
+  .exec-role {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #28616b;
+    background: rgba(233, 196, 106, 0.25);
+    display: inline-block;
+    padding: 0.25rem 1.2rem;
+    border-radius: 40px;
+    margin: 0.5rem 0 1rem;
+    backdrop-filter: blur(3px);
+    border: 1px solid #e9c46a;
+  }
+
+  /* description list — easy to change in html */
+  .exec-description {
+    background: rgba(252, 243, 228, 0.8);
+    padding: 1.2rem 1rem 1rem 1.6rem;
+    border-radius: 28px 12px 28px 12px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+    border-left: 5px solid #e9c46a;
+    list-style: none;
+  }
+
+  .exec-description li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #1e434b;
+  }
+
+  .exec-description i {
+    color: #2a9d8f;
+    width: 1.3rem;
+    font-size: 0.9rem;
+    margin-top: 0.15rem;
+  }
+
+  /* footer – pure css, soft gradient blending */
+  .footer {
+    background: linear-gradient(125deg, #264653, #2a9d8f, #e76f51);
+    background-size: 200% 200%;
+    color: #fef6e8;
+    padding: 2.5rem 2rem 1.8rem;
+    border-radius: 5rem 5rem 2rem 2rem;
+    margin-top: 3.5rem;
+    text-align: center;
+    box-shadow: 0 -12px 30px rgba(30, 70, 60, 0.3);
+    border: 1px solid rgba(255, 220, 170, 0.3);
+  }
+
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.2rem;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    color: #fff1d6;
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #ffe6b3;
+    border-bottom: 1px solid #f4a261;
+  }
+
+  .footer-copy {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    border-top: 1px solid rgba(255, 200, 150, 0.3);
+    padding-top: 1.2rem;
+    width: 100%;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-copy i {
+    color: #f1c78c;
+  }
+
+  /* responsive fine-tuning */
+  @media (max-width: 700px) {
+    body { padding: 1.5rem 1rem 0; }
+    .title-section h1 { font-size: 2.2rem; }
+    .photo-frame { width: 130px; height: 130px; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-links { gap: 1rem; flex-direction: column; }
+    .exec-name { font-size: 1.5rem; }
+  }
+
+ 
