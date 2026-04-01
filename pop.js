@@ -63,7 +63,7 @@
             <i class="fas fa-calendar-check"></i>
           </div>
           <h2>Official Launch!</h2>
-          <div class="arhica-popup-date">15th May 2026 | Hadassah Hotel, Kisumu</div>
+          <div class="arhica-popup-date">15th May 2026 | Palmers Hotel, Kisumu</div>
         </div>
         <div class="arhica-popup-body">
           <p>🎉 <strong>Welcome to ARHICA!</strong> 🎉</p>
@@ -97,7 +97,7 @@
           </div>
           
           <div class="arhica-launch-highlight">
-            <i class="fas fa-map-marker-alt"></i> <strong>📍 Hadassah Hotel, Kisumu</strong><br>
+            <i class="fas fa-map-marker-alt"></i> <strong>📍 Palmers Hotel, Kisumu</strong><br>
             <i class="fas fa-clock"></i> <strong>⏰ 15th May 2026 | 9:00 AM EAT</strong><br>
             <i class="fas fa-users"></i> <strong>👥 Join us in person or virtually!</strong>
           </div>
