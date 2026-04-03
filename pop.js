@@ -103,7 +103,11 @@
           </div>
           <p><strong>What to expect:</strong> Keynote speeches from climate leaders, interactive sessions on inclusive climate action, networking opportunities, and a glimpse into our flagship initiatives including SamakiLog, Sustainable Fish Cage Enterprises, and Environmental Restoration programs.</p>
           <p><strong>Why attend?</strong> Be part of a movement that's transforming challenges into opportunities. Learn how we're building climate resilience, creating decent jobs for youth, and advancing gender equality across the region.</p>
-          <p><strong>RSVP:</strong> Kindly confirm your attendance by contacting us at arhicakis@gmail.com or call +254728697188.</p>
+          <p><strong>RSVP:</strong> Kindly confirm your attendance by contacting us at arhicakis@gmail.com or call +254728697188. You can also register through this link 
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBzO2xZwEym4INJF3SvKMhRX7QmI3aYFX_NzxRmV445IDM8w/viewform?usp=preview" target="_blank">
+    Register Here➡️
+  </a>
+</p>
           <p>Together, let's build climate resilience and leave no one behind! 🌍💚</p>
         </div>
         <div class="arhica-popup-footer">
