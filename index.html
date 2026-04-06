@@ -1,437 +1,1331 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARHICA - AfriResilience Hub for Inclusive Climate Action</title>
-  <!-- Favicon -->
-   <link rel="icon" href="android-chrome-512x512.png" sizes="512x512">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-   <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="pop.css">
-</head>
-<body>
-  <!-- Top Bar -->
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-left">
-        <div><i class="fas fa-map-marker-alt"></i> Kisumu City | Lake Victoria Basin | Africa</div>
-        <div><i class="fas fa-phone"></i> +254728697188</div>
-      </div>
-      <div class="topbar-right">
-        <a href="#partner">Partner With Us</a>
-        <a href="#contact">Contact Us</a>
-        <div class="social-icons">
-          <a href="https://x.com/Arhicake26"><i class="fa-brands fa-square-x-twitter"></i></a>
-          <a href="https://www.facebook.com/share/14PScUybsmw/"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/in/afriresilience-hub-for-inclusive-climate-action-5673483a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B5ZXEJ21VTRyVnRJFPb5v0Q%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/arhi.cakis/"><i class="fab fa-instagram"></i></a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARHICA - AfriResilience Hub for Inclusive Climate Action</title>
+    <link rel="icon" href="android-chrome-512x512.png" sizes="512x512" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- AOS Animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pop.css" />
+    <script src="pop.js"></script>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-logo">ARHICA</div>
+        <div class="preloader-bar"><div class="preloader-progress"></div></div>
       </div>
     </div>
-  </div>
 
-  <!-- Header with Logo -->
-  <header id="header">
-    <div class="container">
-      <div class="logo-container">
-        <img src="logo.jpeg" alt="ARHICA Logo" class="logo-img">
-        <div class="logo-text">
-          <div class="logo-main">ARHICA</div>
-          <div class="logo-tagline">Building resilience. Leaving no one behind</div>
-        </div> 
-      </div>
-      <div class="mobile-toggle" id="mobileToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-      <nav>
-        <ul id="mainNav">
-          <li class="dropdown">
-          <a href="#home">Home <i class="fas fa-chevron-down"></i></a>
-
-          <ul class="dropdown-menu">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#problem">The Problem</a></li>
-            <li><a href="#initiatives">Initiatives</a></li>
-            <li><a href="#impact">Impact</a></li>
-            <li><a href="#partner" >Partner</a></li>
-          </ul>
-        </li>
-
-    <!-- Programmes -->
-    <li class="dropdown">
-      <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
-      <ul class="dropdown-menu">
-        <li><a href="#initiative2">Sustainable Aquaculture</a></li>
-        <li><a href="#initiative3">Environmental Restoration</a></li>
-        <li><a href="#">Climate Education</a></li>
-        <li><a href="#">Youth Empowerment</a></li>
-        <li><a href="#initiative1">Research & Innovation</a></li>
-        <li><a href="#initiative4">GESI(Gender Equality and Social Inclusion)</a></li>
-      </ul>
-    </li>
-    <!-- Organization -->
-    <li class="dropdown">
-      <a href="#">Organization <i class="fas fa-chevron-down"></i></a>
-      <ul class="dropdown-menu">
-        <li><a href="refernce.html">Board of Directors</a></li>
-        <li><a href="management.html">Management</a></li>
-        <li><a href="teams.html">Teams & Departments</a></li>
-        <li><a href="#">Strategic Partners</a></li>
-        <li><a href="#">Volunteers & Staff</a></li>
-        <li><a href="#">Team Gallery</a></li>
-      </ul>
-    </li>
-    <li class="dropdown"><a href="#home">Careers <i class="fas fa-chevron-down"></i></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Open Vacancies</a></li>
-        <li><a href="#">Internships & Attachment</a></li>
-        <li><a href="#">Volunteer Programs</a></li>
-        <li><a href="#">Research & Fellowships</a></li>
-        <li><a href="#" >Career Mentorship</a></li>
-        <li><a href="#">Apply Now</a></li>
-      </ul>
-    </li>
-
-    <!-- Donate -->
-    
-      <a href="donation.html" class="btn btn-primary">
-        Donate 
-      </a>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>Inclusive Climate Action for Resilient Communities</h2>
-      <p>Empowering youth, women and vulnerable communities to lead climate resilience and economic transformation across the Lake Victoria Basin.</p>
-      <div class="hero-btns">
-        <a href="#initiatives" class="btn btn-light">Our Initiatives</a>
-        <a href="#partner" class="btn btn-accent">Partner With Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>Who We Are</h2>
-        <p>AfriResilience Hub for Inclusive Climate Action (ARHICA) is a non-profit organization rooted in Kisumu City within the Lake Victoria Basin.</p>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Empowering Communities for Climate Resilience</h3>
-          <p>We empower youth, women, persons with disabilities, and vulnerable groups to drive inclusive climate resilience and economic transformation.</p>
-          <p>The Lake Victoria Basin reflects Africa's development crossroads: declining fisheries, climate shocks, youth unemployment, food insecurity, and exclusion from decision-making.</p>
-          <p>ARHICA responds by turning these challenges into opportunities through community-led, evidence-based, and inclusive solutions that link climate action, food systems, governance, and enterprise development.</p>
-          <a href="#problem" class="btn btn-primary">The Challenge We Face</a>
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar-left">
+          <span
+            ><i class="fas fa-map-marker-alt"></i> Kisumu City | Lake Victoria
+            Basin | Africa</span
+          >
+          <span><i class="fas fa-phone"></i> +254728697188</span>
         </div>
-        <div class="about-image slider" id="aboutImage">
-          <img src="lawrence.jpg" alt="slide1">
-          <img src="slide1.jpg" alt="slide 2">
-          <img src="slide3.jpg" alt="slide 3">
-          <img src="eldon.jpg" alt="slide4">
-          <img src="eldon2.jpg" alt="slide 5">
-          <img src="eldon4.jpg" alt="slide 6">
-          <img src="eldon5.jpg" alt="slide 7">
-          <img src="sily.jpg" alt="slide6">
-          <img src="copa.png" alt="">
-          <img src="lawren.jpg" alt="slide 9">
-          <!-- Dots -->
-          <div class="slider-dots"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Problem -->
-  <section class="problem" id="problem">
-    <div class="container">
-      <div class="section-title">
-        <h2>The Problem We Are Solving</h2>
-        <p>Climate change and socio-economic challenges threaten livelihoods across Western Kenya's Lake Victoria Basin.</p>
-      </div>
-      <div class="problem-content">
-        <div class="slider">
-          <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Climate change impact" style="border-radius:15px; box-shadow: var(--shadow);">
-           <img src="climatechange.jpeg" alt="slide2">
-           <img src="underutilization.jpg" alt="slide8">
-           <img src="unemployment.jpg" alt="slide9">
-           <div class="slider-dots"></div>
-        </div>
-        <div>
-          <ul class="problem-list">
-            <li>Climate change threatening fisheries, agriculture and livelihoods</li>
-            <li>Rising youth unemployment and underemployment</li>
-            <li>Underutilized blue economy opportunities</li>
-            <li>Exclusion from climate decision-making</li>
-            <li>Environmental degradation of Lake Victoria</li>
-            <li>Food insecurity and poverty deepening</li>
-          </ul>
-          <p style="margin-top: 30px; font-style: italic;">Without integrated, inclusive, and scalable interventions, these challenges will continue to deepen poverty, inequality, and vulnerability.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vision Mission -->
-  <section class="vision-mission">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Vision & Mission</h2>
-        <p>Guiding our work towards a resilient and inclusive Africa</p>
-      </div>
-      <div class="vm-cards">
-        <div class="vm-card" id="visionCard">
-          <h3><i class="fas fa-eye"></i> Our Vision</h3>
-          <p>An Africa where climate resilience and food systems are inclusive, just and community-led.</p>
-          <p>We envision thriving communities where everyone, especially the most vulnerable, actively shapes their climate-resilient future.</p>
-        </div>
-        <div class="vm-card" id="missionCard">
-          <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-          <p>To advance inclusive climate action by strengthening community resilience, transforming food systems, and promoting climate justice through evidence-based, community-led solutions.</p>
-          <p>We bridge the gap between local innovation and global climate action agendas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Initiatives -->
-  <section class="initiatives" id="initiatives">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Flagship Initiatives</h2>
-        <p>Integrated solutions that demonstrate how climate resilience can drive jobs, inclusion, and economic growth.</p>
-      </div>
-      <div class="initiatives-grid">
-        <div class="initiative-card" id="initiative1">
-          <div class="initiative-img slider">
-            <img src="sily.jpg" alt="patner1">
-            <img src="samakilog.png" alt="Digital technology">
-            <img src="samakilog1.jpg" alt="slide2">
-            <img src="pop.png" alt="slide5">
-            <div class="slider-dots"></div>
-          </div>
-          <div class="initiative-content">
-            <h4>SamakiLog Digital Application</h4>
-            <p>Data-driven fisheries and aquaculture value chains. A fully developed digital mobile and computer application designed to strengthen the blue economy across the Lake Victoria Basin.</p>
-            <p><strong>Key Benefits:</strong> Digital record-keeping, improved productivity, market linkages, and youth engagement in tech-driven solutions.</p>
-            <a href="https://fishcatchlog-75077.web.app/" target="_blank" class="btn btn-primary">View App <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="initiative-card" id="initiative2">
-          <div class="initiative-img slider">
-            <img src="lawrence.jpg" alt="slide1">
-             <img src="fishcage1.jpg" alt="slide2">
-             <img src="fishcage2.jpg" alt="slide3">
-             <img src="fishcage3.jpg" alt="slide4">
-             <img src="fishcage4.jpg" alt="slide5">
-             <img src="fishcage5.jpg" alt="slide6">
-             <img src="fishcage6.jpg" alt="slide7">
-             <img src="fishcage7.jpg" alt="slide8">
-             <img src="fishcage8.jpg" alt="slide9">
-             <img src="envsteward.jpg" alt="slide10">
-             <div class="slider-dots"></div>
-          </div>
-          <div class="initiative-content">
-            <h4>Sustainable Fish Cage Enterprises</h4>
-            <p>Youth employment through scalable aquaculture. Establishing sustainable fish cages along Lake Victoria to create decent employment and enterprise opportunities.</p>
-            <p><strong>Key Outcomes:</strong> Direct employment for youth, skills development in aquaculture, improved household incomes, and local food security.</p>
-            <a href="#partner" class="btn btn-primary">Get Involved</a>
-          </div>
-        </div>
-        <div class="initiative-card" id="initiative3">
-          <div class="initiative-img slider">
-            <img src="restoration.jpg" alt="patner1">
-            <img src="eldonjak.jpg" alt="slide1">
-            <img src="eldonjak2.jpg" alt="slide2">
-            <img src="copa.png" alt="slide3">
-            <img src="image.png" alt="slide4">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Environmental restoration">
-             <div class="slider-dots"></div>
-          </div>
-          <div class="initiative-content">
-            <h4>Environmental Restoration Partnerships</h4>
-            <p>Community-led conservation and climate action. Restoring degraded ecosystems along the Lake Victoria Basin and promoting sustainable natural resource management.</p>
-            <p><strong>Focus Areas:</strong> Ecosystem restoration, community climate action campaigns, and strengthening youth participation in conservation.</p>
-            <a href="#partner" class="btn btn-primary">Join Efforts</a>
-          </div>
-        </div>
-        <div class="initiative-card" id="initiative4">
-          <div class="initiative-img slider">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gender Equality Workshop">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Social Inclusion Training">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Women and Youth Empowerment">
-            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Community Inclusion Program">
-            <div class="slider-dots"></div>
-          </div>
-          <div class="initiative-content">
-            <h4>Gender Equality & Social Inclusion (GESI)</h4>
-            <p>
-              Promoting fairness, dignity, and equal opportunities for all. 
-              This initiative addresses systemic inequalities affecting women, youth, persons with disabilities, and marginalized groups such as LGBTQ.
-            </p>
-            <p>
-              <strong>Key Impact:</strong> Empowered communities, inclusive leadership, equal access to resources, strengthened human rights, and reduced social barriers.
-            </p>
-            <a href="#partner" class="btn btn-primary">Support GESI</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Stats -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <h3 data-target="1000" data-suffix="+">0</h3>
-          <p>Youth Engaged</p>
-        </div>
-        
-        <div class="stat-item">
-          <h3 data-target="3">0</h3>
-          <p>Flagship Programs</p>
-        </div>
-        
-        <div class="stat-item">
-          <h3 data-target="10" data-suffix="+">0</h3>
-          <p>Community Partners</p>
-        </div>
-        
-        <div class="stat-item">
-          <h3 data-target="7" data-suffix="+">0</h3>
-          <p>SDGs Targeted</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact -->
-  <section class="impact" id="impact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Impact Pathways</h2>
-        <p>Through our initiatives, ARHICA creates measurable change across multiple dimensions.</p>
-      </div>
-      <div class="impact-content">
-        <div class="impact-item">
-          <i class="fas fa-briefcase"></i>
-          <h4>Decent Jobs</h4>
-          <p>Creating employment and self-employment opportunities for youth.</p>
-        </div>
-        <div class="impact-item">
-          <i class="fas fa-leaf"></i>
-          <h4>Climate Resilience</h4>
-          <p>Strengthening climate-resilient livelihoods and food systems.</p>
-        </div>
-        <div class="impact-item">
-          <i class="fas fa-chart-line"></i>
-          <h4>Economic Growth</h4>
-          <p>Promoting inclusive economic growth in vulnerable communities.</p>
-        </div>
-        <div class="impact-item">
-          <i class="fas fa-seedling"></i>
-          <h4>Sustainability</h4>
-          <p>Enhancing environmental sustainability and ecosystem health.</p>
-        </div>
-        <div class="impact-item">
-          <i class="fas fa-volume-up"></i>
-          <h4>Community Voices</h4>
-          <p>Restoring settlement patterns around late regions while amplifying community voices in climate governance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="partner">
-    <div class="container">
-      <div class="section-title" style="color: white;">
-        <h2>Partner With Us</h2>
-        <p>Join us in building inclusive climate resilience and transforming challenges into opportunities.</p>
-      </div>
-      <div style="text-align: center;">
-        <p>ARHICA invites development partners, donors, private sector actors, and social investors to join us in building inclusive climate resilience from the heart of Africa.</p>
-        <p style="margin: 30px 0; font-size: 1.3rem;"><strong>Your support will empower youth and vulnerable communities, strengthen the blue economy, advance climate justice, and scale locally grounded solutions with global relevance.</strong></p>
-        <div class="hero-btns">
-        <a href="mailto:arhicakis@gmail.com" class="btn btn-light">Get in Touch</a>
-        <a href="#contact" class="btn btn-accent">Contact Information</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-col">
-          <h4>ARHICA</h4>
-          <p>AfriResilience Hub for Inclusive Climate Action</p>
-          <p><i class="fas fa-map-marker-alt"></i> Kisumu City, Lake Victoria Basin, Kenya</p>
-          <p><i class="fas fa-phone"></i> +254728697188</p>
-          <p><i class="fas fa-envelope"></i> arhicakis@gmail.com</p>
+        <div class="topbar-right">
+          <a href="mailto:arhicakis@gmail.com"
+            ><i class="fas fa-envelope"></i> arhicakis@gmail.com</a
+          >
           <div class="social-icons">
-            <a href="https://x.com/Arhicake26"><i class="fa-brands fa-square-x-twitter"></i></i></a>
-            <a href="https://www.facebook.com/share/14PScUybsmw/"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/afriresilience-hub-for-inclusive-climate-action-5673483a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B5ZXEJ21VTRyVnRJFPb5v0Q%3D%3D"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/arhi.cakis/"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/Arhicake26" aria-label="Twitter"
+              ><i class="fa-brands fa-square-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/share/14PScUybsmw/"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/afriresilience-hub-for-inclusive-climate-action-5673483a4"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/arhi.cakis/"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#problem">The Problem</a>
-          <a href="#initiatives">Initiatives</a>
-          <a href="#impact">Impact</a>
-          <a href="#partner">Partner With Us</a>
-        </div>
-        <div class="footer-col">
-          <h4>Focus Areas</h4>
-          <p><i class="fas fa-check-circle"></i> Climate Action</p>
-          <p><i class="fas fa-check-circle"></i> Blue Economy</p>
-          <p><i class="fas fa-check-circle"></i> Youth Empowerment</p>
-          <p><i class="fas fa-check-circle"></i> Food Systems</p>
-          <p><i class="fas fa-check-circle"></i> Environmental Sustainability</p>
-          <p><i class="fas fa-check-circle"></i> Community Governance</p>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p>Subscribe to our newsletter to receive updates on our initiatives and impact.</p>
-          <form id="newsletterForm" style="margin-top: 20px;">
-            <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #333; background: #222; color: white; margin-bottom: 10px;">
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; <span id="year"></span> AfriResilience Hub for Inclusive Climate Action (ARHICA). All rights reserved.</p>
-        <p>Kisumu City | Lake Victoria Basin | Africa</p>
       </div>
     </div>
-  </footer>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "AfriResilience Hub for Inclusive Climate Action",
-      "url": "https://arhica.org",
-      "logo": "https://arhica.org/logo.png"
-    }
-  </script>
-  <script src="script.js"></script>
-  <script src="pop.js"></script>
-</body>
+
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <a href="#home" class="logo-container">
+          <img
+            src="logo.jpeg"
+            alt="ARHICA Logo"
+            class="logo-img"
+            onerror="this.style.display='none'"
+          />
+          <div class="logo-text">
+            <div class="logo-main">ARHICA</div>
+            <div class="logo-tagline">
+              Building resilience. Leaving no one behind
+            </div>
+          </div>
+        </a>
+
+        <button
+          class="mobile-toggle"
+          id="mobileToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav>
+          <ul id="mainNav">
+            <li class="dropdown">
+              <a href="#home">Home <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#initiatives">Initiatives</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#partner">Partner</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#initiative2">Sustainable Aquaculture</a></li>
+                <li><a href="#initiative3">Environmental Restoration</a></li>
+                <li><a href="#initiative6">Climate Education</a></li>
+                <li><a href="#initiative5">Youth Empowerment</a></li>
+                <li><a href="#initiative1">Research & Innovation</a></li>
+                <li><a href="#initiative4">GESI</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Organization <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="refernce.html">Board of Directors</a></li>
+                <li><a href="management.html">Management</a></li>
+                <li><a href="teams.html">Teams & Departments</a></li>
+                <li><a href="#">Strategic Partners</a></li>
+                <li><a href="#">Volunteers & Staff</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Media <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#articles">Articles & News</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Careers <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Open Vacancies</a></li>
+                <li><a href="#">Internships & Attachment</a></li>
+                <li><a href="#">Volunteer Programs</a></li>
+                <li><a href="#">Research & Fellowships</a></li>
+                <li><a href="#">Apply Now</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="donation.html" class="btn btn-donate">
+                <i class="fas fa-heart"></i> Donate
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-bg-video">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+          <span>🌍 Lake Victoria Basin, Kenya</span>
+        </div>
+        <h1 data-aos="fade-up" data-aos-delay="200">
+          Inclusive Climate Action<br />
+          <span class="hero-accent">for Resilient Communities</span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="400">
+          Empowering youth, women and vulnerable communities to lead climate
+          resilience and economic transformation across the Lake Victoria Basin.
+        </p>
+        <span style="font-size: 16px; color: orange; text-decoration: solid;">We recognize a hard truth: ambition alone is not enough where resources are scarce and opportunities uneven. Across our communities, youth, women, and vulnerable groups carry the burden of potential without the means to sustain it. Young people, driven yet constrained by immediate economic pressures, often abandon promising ventures, while women and marginalized populations continue to navigate limiting norms and restricted access to resources.
+          We exist to change this trajectory. By delivering tailored, informed, and market-responsive support, ARHICA transforms uncertainty into opportunity, empowering individuals to invest with confidence, persist with purpose, and thrive beyond systemic barriers. We are not just responding to need; we are redefining possibility for inclusive, sustainable economic growth</span>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+          <div class="hero-stat">
+            <span class="count" data-target="1000">0</span>+<br /><small
+              >Youth Engaged</small
+            >
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="count" data-target="10">0</span>+<br /><small
+              >Partners</small
+            >
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="count" data-target="7">0</span>+<br /><small
+              >SDGs Targeted</small
+            >
+          </div>
+        </div>
+        <div class="hero-btns" data-aos="fade-up" data-aos-delay="600">
+          <a href="#initiatives" class="btn btn-primary">Explore Our Work</a>
+          <a href="#partner" class="btn btn-outline">Partner With Us</a>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-visual" data-aos="fade-right">
+            <div class="about-img-main slider" id="aboutImage">
+              <img
+                src="lawrence.jpg"
+                alt="ARHICA Team"
+                onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800'"
+              />
+              <img
+                src="eldon.jpg"
+                alt="Field activities"
+                onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800'"
+              />
+              <img
+                src="sily.jpg"
+                alt="Youth program"
+                onerror="this.src='https://images.unsplash.com/photo-1526662092594-e98c1e356d6a?w=800'"
+              />
+              <img src="DSC_0913.jpg" alt="" />
+              <img src="slide3.jpg" alt="slide 3" />
+              <img src="eldon2.jpg" alt="slide 5" />
+              <img src="eldon4.jpg" alt="slide 6" />
+              <img src="eldon5.jpg" alt="slide 7" />
+              <img src="lawren.jpg" alt="slide 9" />
+              <div class="slider-dots"></div>
+            </div>
+            <div class="about-float-card">
+              <i class="fas fa-award"></i>
+              <div>
+                <strong>Est. 2023</strong>
+                <span>Kisumu, Kenya</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-left" data-aos-delay="150">
+            <div class="section-tag">Who We Are</div>
+            <h2>
+              Empowering Communities for
+              <span class="text-accent">Climate Resilience</span>
+            </h2>
+            <p class="lead">
+              AfriResilience Hub for Inclusive Climate Action (ARHICA) is a
+              non-profit organization rooted in Kisumu City within the Lake
+              Victoria Basin.
+            </p>
+            <p>
+              We empower youth, women, persons with disabilities, and vulnerable
+              groups to drive inclusive climate resilience and economic
+              transformation. The Lake Victoria Basin reflects Africa's
+              development crossroads — declining fisheries, climate shocks,
+              youth unemployment, food insecurity, and exclusion from
+              decision-making.
+            </p>
+            <p>
+              ARHICA responds by turning these challenges into opportunities
+              through community-led, evidence-based, and inclusive solutions
+              that link climate action, food systems, governance, and enterprise
+              development.
+            </p>
+            <div class="about-tags">
+              <span><i class="fas fa-check-circle"></i> Climate Justice</span>
+              <span><i class="fas fa-check-circle"></i> Blue Economy</span>
+              <span><i class="fas fa-check-circle"></i> Youth Leadership</span>
+              <span><i class="fas fa-check-circle"></i> Food Systems</span>
+            </div>
+            <a href="#problem" class="btn btn-primary"
+              >The Challenge We Face <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag light">The Challenge</div>
+          <h2>The Problem We Are Solving</h2>
+          <p>
+            Climate change and socio-economic challenges threaten livelihoods
+            across Western Kenya's Lake Victoria Basin.
+          </p>
+        </div>
+        <div class="problem-content">
+          <div class="problem-visual" data-aos="fade-right">
+            <div class="slider">
+              <img
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80"
+                alt="Climate impact"
+              />
+              <img
+                src="climatechange.jpeg"
+                alt="Climate change"
+                onerror="this.src='https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800'"
+              />
+              <img
+                src="underutilization.jpg"
+                alt="Underutilization"
+                onerror="this.src='https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=800'"
+              />
+              <img src="climatechange.jpeg" alt="slide2" />
+              <img src="underutilization.jpg" alt="slide8" />
+              <div class="slider-dots"></div>
+            </div>
+          </div>
+          <div
+            class="problem-list-wrap"
+            data-aos="fade-left"
+            data-aos-delay="150"
+          >
+            <ul class="problem-list">
+              <li data-aos="fade-left" data-aos-delay="100">
+                <div class="problem-icon">
+                  <i class="fas fa-thermometer-half"></i>
+                </div>
+                <div>
+                  <strong>Climate Change Threat</strong><br />Threatening
+                  fisheries, agriculture and livelihoods
+                </div>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="150">
+                <div class="problem-icon">
+                  <i class="fas fa-user-slash"></i>
+                </div>
+                <div>
+                  <strong>Youth Unemployment</strong><br />Rising unemployment
+                  and underemployment among youth
+                </div>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="200">
+                <div class="problem-icon"><i class="fas fa-water"></i></div>
+                <div>
+                  <strong>Underutilized Blue Economy</strong><br />Vast
+                  potential of Lake Victoria going untapped
+                </div>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="250">
+                <div class="problem-icon"><i class="fas fa-ban"></i></div>
+                <div>
+                  <strong>Excluded from Decisions</strong><br />Communities
+                  locked out of climate governance
+                </div>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="300">
+                <div class="problem-icon"><i class="fas fa-tree"></i></div>
+                <div>
+                  <strong>Environmental Degradation</strong><br />Lake Victoria
+                  ecosystem under severe stress
+                </div>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="350">
+                <div class="problem-icon"><i class="fas fa-utensils"></i></div>
+                <div>
+                  <strong>Food Insecurity</strong><br />Poverty and hunger
+                  deepening across communities
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Mission -->
+    <section class="vision-mission">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag">Our Direction</div>
+          <h2>Vision & Mission</h2>
+          <p>Guiding our work towards a resilient and inclusive Africa</p>
+        </div>
+        <div class="vm-cards">
+          <div class="vm-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="vm-icon"><i class="fas fa-eye"></i></div>
+            <h3>Our Vision</h3>
+            <p>
+              An Africa where climate resilience and food systems are inclusive,
+              just and community-led. We envision thriving communities where
+              everyone — especially the most vulnerable — actively shapes their
+              climate-resilient future.
+            </p>
+          </div>
+          <div class="vm-card featured" data-aos="zoom-in" data-aos-delay="200">
+            <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Our Mission</h3>
+            <p>
+              To advance inclusive climate action by strengthening community
+              resilience, transforming food systems, and promoting climate
+              justice through evidence-based, community-led solutions. We bridge
+              local innovation and global climate agendas.
+            </p>
+          </div>
+          <div class="vm-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="vm-icon"><i class="fas fa-hands-helping"></i></div>
+            <h3>Our Values</h3>
+            <p>
+              Inclusivity, community ownership, evidence-based action,
+              transparency, and climate justice guide everything we do. We
+              believe lasting change comes from within communities, not imposed
+              from outside.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Initiatives -->
+    <section class="initiatives" id="initiatives">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag">What We Do</div>
+          <h2>Flagship Initiatives</h2>
+          <p>
+            Integrated solutions demonstrating how climate resilience drives
+            jobs, inclusion, and economic growth.
+          </p>
+        </div>
+        <div class="initiatives-grid">
+          <div
+            class="initiative-card"
+            id="initiative1"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="initiative-img slider">
+              <img src="sily.jpg" alt="patner1" />
+              <img
+                src="samakilog.png"
+                alt="SamakiLog"
+                onerror="this.src='https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600'"
+              />
+              <img
+                src="samakilog1.jpg"
+                alt="Digital app"
+                onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600'"
+              />
+              <img
+                src="pop.png"
+                alt="Innovation"
+                onerror="this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600'"
+              />
+              <div class="slider-dots"></div>
+            </div>
+            <div class="initiative-badge">Digital Innovation</div>
+            <div class="initiative-content">
+              <h4>SamakiLog Digital Application</h4>
+              <p>
+                A fully developed digital mobile and computer application
+                designed to strengthen the blue economy across the Lake Victoria
+                Basin with data-driven fisheries management.
+              </p>
+              <div class="initiative-tags">
+                <span>Digital Records</span>
+                <span>Market Linkages</span>
+                <span>Youth Tech</span>
+              </div>
+              <a
+                href="https://fishcatchlog-75077.web.app/"
+                target="_blank"
+                class="btn btn-primary btn-sm"
+                >View App <i class="fas fa-external-link-alt"></i
+              ></a>
+            </div>
+          </div>
+
+          <div
+            class="initiative-card"
+            id="initiative2"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="initiative-img slider">
+              <img src="lawrence.jpg" alt="slide1" />
+              <img src="fishcage1.jpg" alt="slide2" />
+              <img src="fishcage2.jpg" alt="slide3" />
+              <img src="fishcage3.jpg" alt="slide4" />
+              <img src="fishcage4.jpg" alt="slide5" />
+              <img src="fishcage5.jpg" alt="slide6" />
+              <img src="fishcage6.jpg" alt="slide7" />
+              <img src="fishcage7.jpg" alt="slide8" />
+              <img src="fishcage8.jpg" alt="slide9" />
+              <img src="envsteward.jpg" alt="slide10" />
+              <div class="slider-dots"></div>
+            </div>
+            <div class="initiative-badge teal">Aquaculture</div>
+            <div class="initiative-content">
+              <h4>Sustainable Fish Cage Enterprises</h4>
+              <p>
+                Establishing sustainable fish cages along Lake Victoria to
+                create decent employment and enterprise opportunities for youth
+                and communities.
+              </p>
+              <div class="initiative-tags">
+                <span>Employment</span>
+                <span>Food Security</span>
+                <span>Lake Victoria</span>
+              </div>
+              <a href="#partner" class="btn btn-primary btn-sm">Get Involved</a>
+            </div>
+          </div>
+
+          <div
+            class="initiative-card"
+            id="initiative3"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="initiative-img slider">
+              <img
+                src="restoration.jpg"
+                alt="Restoration"
+                onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600'"
+              />
+              <img
+                src="eldonjak.jpg"
+                alt="Conservation"
+                onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600'"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600"
+                alt="Environment"
+              />
+              <div class="slider-dots"></div>
+            </div>
+            <div class="initiative-badge amber">Conservation</div>
+            <div class="initiative-content">
+              <h4>Environmental Restoration Partnerships</h4>
+              <p>
+                We are restoring ecosystems while rebuilding community
+                responsibility for nature. ARHICA leads integrated environmental
+                restoration initiatives including reforestation, wetland
+                recovery, and landscape rehabilitation, anchored in community
+                participation. By engaging schools, youth groups, and local
+                institutions, we cultivate environmental stewardship as a shared
+                responsibility and a long-term investment.
+                <br />
+                <b>Key Focus Areas & Indicators:</b> <br />
+                • Number of trees planted and survival rates <br />
+                • Hectares of land restored (wetlands, degraded landscapes)
+                <br />
+                • Community participation levels in restoration activities
+                <br />
+                • Biodiversity recovery and reduction in soil erosion <br />
+                <b>Impact:</b>
+                Revived ecosystems, strengthened climate resilience, enhanced
+                biodiversity, and empowered communities actively safeguarding
+                their environment.
+              </p>
+              <div class="initiative-tags">
+                <span>Ecosystems</span>
+                <span>Conservation</span>
+                <span>Community</span>
+              </div>
+              <a href="#partner" class="btn btn-primary btn-sm">Join Efforts</a>
+            </div>
+          </div>
+          <div
+            class="initiative-card"
+            id="initiative4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="initiative-img slider">
+              <img
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600"
+                alt="Gender equality"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600"
+                alt="Inclusion training"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600"
+                alt="Women empowerment"
+              />
+              <div class="slider-dots"></div>
+            </div>
+            <div class="initiative-badge coral">GESI</div>
+            <div class="initiative-content">
+              <h4>Gender Equality & Social Inclusion</h4>
+              <p>
+                Inclusive development is at the heart of ARHICA’s mission. We
+                champion equitable access to opportunities by empowering women,
+                youth, and marginalized groups to actively participate in social
+                and economic transformation. Through targeted training,
+                advocacy, and inclusive programming, we break systemic barriers
+                and foster environments where every voice matters.
+                <br />
+                <b>Key Focus Areas & Indicators:</b> <br />
+                • Participation of women and marginalized groups in programs
+                <br />
+                • Access to economic opportunities and resources <br />
+                • Representation in leadership and decision-making spaces <br />
+                • Reduction in gender and social inequalities <br />
+                Impact: <br />
+                Inclusive communities, reduced disparities, strengthened social
+                cohesion, and equitable access to opportunities for all
+              </p>
+              <div class="initiative-tags">
+                <span>Gender</span>
+                <span>Inclusion</span>
+                <span>Human Rights</span>
+              </div>
+              <a href="#partner" class="btn btn-primary btn-sm">Support GESI</a>
+            </div>
+          </div>
+          <div
+            class="initiative-card"
+            id="initiative5"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+          <div class="initiative-img slider">
+            <img
+              src="YOUTHHHH.jpeg"
+              alt="Inclusion training"
+            />
+            <img
+              src="DSC_0972.jpg"
+              alt="yOUTH empowerment"
+            />
+            <div class="slider-dots"></div>
+          </div>
+          <div class="initiative-badge coral">Youth Empowerment</div>
+          <div class="initiative-content">
+            <h4>Youth Empowerment</h4>
+            <p>
+              Young people are not just beneficiaries; they are leaders of change. ARHICA invests in youth through mentorship, leadership development, entrepreneurship training, and hands-on skills-building initiatives.
+              We create safe and engaging platforms for dialogue, innovation, and growth. Our recent media engagement, including a youth-focused television discussion during school holidays, exemplifies our commitment to nurturing responsible, informed, and proactive young citizens.
+              <br> <b>Key Focus Areas & Indicators:</b> <br>
+              •	Youth participation in leadership and community initiatives <br>
+              •	Number of youths trained and engaged in entrepreneurship programs <br>
+              •	Employment, self-employment, and apprenticeship placements <br>
+              •	Behavioral change and life-skills development outcomes
+             <br><b>Impact:</b> 
+              <p>Empowered youth, strengthened leadership pipelines, increased economic opportunities, and socially responsible future leaders.</p>
+              
+            </p>
+            <div class="initiative-tags">
+              <span>Leadership</span>
+              <span>Employment</span>
+              <span>Capacity Building</span>
+            </div>
+            <a href="#partner" class="btn btn-primary btn-sm">Support Youth Empowerment</a>
+          </div>
+        </div>
+          <div
+            class="initiative-card"
+            id="initiative6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+          <div class="initiative-img slider">
+            <img
+              src="edu.jpg"
+              alt="climate"
+            />
+            <img
+              src="images (10).jpg"
+              alt="Inclusion training"
+            />
+            <div class="slider-dots"></div>
+          </div>
+          <div class="initiative-badge coral">Climate Education</div>
+          <div class="initiative-content">
+            <h4>Climate Education</h4>
+           <p>Knowledge is the foundation of resilience. ARHICA delivers transformative climate education programs that equip communities with practical knowledge on climate adaptation, mitigation, and sustainable living.
+              Through workshops, school engagements, and public campaigns, we bridge the gap between climate science and everyday decision-making, empowering communities to act.
+           <br> <b>Key Focus Areas & Indicators:</b> <br>
+               •	Number of individuals trained on climate-smart practices <br>
+               •	Adoption of renewable energy and sustainable behaviors <br>
+               •	Community-level climate action initiatives established <br>
+               •	Improved disaster preparedness and response capacity <br>
+           <b>Impact:</b>  <br>
+                Informed communities, reduced climate vulnerability, and widespread adoption of sustainable environmental practices.
+            </p>
+          
+            <div class="initiative-tags">
+              <span>Mass Education</span>
+              <span>Inclusivity</span>
+              
+            </div>
+            <a href="#partner" class="btn btn-primary btn-sm">Join Efforts</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-section">
+      <div class="stats-bg"></div>
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <h3><span class="count" data-target="1000">0</span>+</h3>
+            <p>Youth Engaged</p>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+            <h3><span class="count" data-target="4">0</span></h3>
+            <p>Flagship Programs</p>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-icon"><i class="fas fa-handshake"></i></div>
+            <h3><span class="count" data-target="10">0</span>+</h3>
+            <p>Community Partners</p>
+          </div>
+          <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="stat-icon"><i class="fas fa-globe-africa"></i></div>
+            <h3><span class="count" data-target="7">0</span>+</h3>
+            <p>SDGs Targeted</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="impact" id="impact">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag">Our Results</div>
+          <h2>Impact Pathways</h2>
+          <p>
+            Through our initiatives, ARHICA creates measurable change across
+            multiple dimensions.
+          </p>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="impact-icon"><i class="fas fa-briefcase"></i></div>
+            <h4>Decent Jobs</h4>
+            <p>
+              Creating employment and self-employment opportunities for youth in
+              the blue economy and green sectors.
+            </p>
+          </div>
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="150">
+            <div class="impact-icon"><i class="fas fa-leaf"></i></div>
+            <h4>Climate Resilience</h4>
+            <p>
+              Strengthening climate-resilient livelihoods and food systems for
+              long-term sustainability.
+            </p>
+          </div>
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="impact-icon"><i class="fas fa-chart-line"></i></div>
+            <h4>Economic Growth</h4>
+            <p>
+              Promoting inclusive economic growth and enterprise development in
+              vulnerable communities.
+            </p>
+          </div>
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="250">
+            <div class="impact-icon"><i class="fas fa-seedling"></i></div>
+            <h4>Sustainability</h4>
+            <p>
+              Enhancing environmental sustainability and ecosystem health across
+              the Lake Victoria Basin.
+            </p>
+          </div>
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="impact-icon"><i class="fas fa-volume-up"></i></div>
+            <h4>Community Voices</h4>
+            <p>
+              Amplifying community voices in climate governance and
+              policy-making processes.
+            </p>
+          </div>
+          <div class="impact-item" data-aos="fade-up" data-aos-delay="350">
+            <div class="impact-icon"><i class="fas fa-venus-mars"></i></div>
+            <h4>Gender Equity</h4>
+            <p>
+              Advancing gender equality and social inclusion across all programs
+              and partnerships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section" id="articles">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag">Stay Informed</div>
+          <h2>Articles & News</h2>
+          <p>
+            Latest insights, stories and updates from ARHICA's work across the
+            Lake Victoria Basin.
+          </p>
+        </div>
+        <div class="articles-grid">
+          <article
+            class="article-card featured-article"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80"
+                alt="Climate action"
+              />
+              <span class="article-cat">Climate Action</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> March 15, 2026</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+              <h3>
+                How Youth-Led Climate Action is Transforming Lake Victoria
+                Communities
+              </h3>
+              <p>
+                Young change-makers from Kisumu are pioneering innovative
+                approaches to climate resilience, combining traditional
+                ecological knowledge with modern technology to protect the
+                lake's ecosystem.
+              </p>
+              <a href="#" class="article-link"
+                >Read Full Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="article-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80"
+                alt="Aquaculture"
+              />
+              <span class="article-cat">Blue Economy</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Feb 28, 2026</span>
+                <span><i class="far fa-clock"></i> 4 min read</span>
+              </div>
+              <h3>
+                Sustainable Aquaculture: Building Food Security at Lake Victoria
+              </h3>
+              <p>
+                Fish cage enterprises are creating new economic opportunities
+                while helping restore fish populations in East Africa's largest
+                lake.
+              </p>
+              <a href="#" class="article-link"
+                >Read Full Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="article-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80"
+                alt="Women empowerment"
+              />
+              <span class="article-cat">GESI</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Feb 10, 2026</span>
+                <span><i class="far fa-clock"></i> 3 min read</span>
+              </div>
+              <h3>
+                Women at the Forefront: Gender Equality in Climate
+                Decision-Making
+              </h3>
+              <p>
+                ARHICA's GESI program is breaking barriers and ensuring women's
+                voices shape climate adaptation strategies across the region.
+              </p>
+              <a href="#" class="article-link"
+                >Read Full Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="article-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80"
+                alt="Technology"
+              />
+              <span class="article-cat">Innovation</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Jan 22, 2026</span>
+                <span><i class="far fa-clock"></i> 6 min read</span>
+              </div>
+              <h3>
+                SamakiLog: Digital Technology Revolutionizing Fisheries Data
+              </h3>
+              <p>
+                Our mobile application is now tracking thousands of catch
+                records, giving fishers and policymakers the data they need to
+                protect fish stocks.
+              </p>
+              <a href="#" class="article-link"
+                >Read Full Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <article class="article-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="article-img">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80"
+                alt="Restoration"
+              />
+              <span class="article-cat">Restoration</span>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <span><i class="far fa-calendar"></i> Jan 5, 2026</span>
+                <span><i class="far fa-clock"></i> 4 min read</span>
+              </div>
+              <h3>Restoring the Shoreline: Community Conservation in Action</h3>
+              <p>
+                Over 500 community members participated in ecosystem restoration
+                drives, planting over 3,000 trees along Lake Victoria's shores.
+              </p>
+              <a href="#" class="article-link"
+                >Read Full Article <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+        <div class="articles-cta" data-aos="fade-up">
+          <a href="#" class="btn btn-outline-dark"
+            >View All Articles <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section" id="videos">
+      <div class="videos-bg"></div>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag light">Watch & Learn</div>
+          <h2 style="color: white">Videos & Stories</h2>
+          <p style="color: rgba(255, 255, 255, 0.75)">
+            See ARHICA's work in action — community stories, field footage and
+            program highlights.
+          </p>
+        </div>
+        <div class="videos-grid">
+          <div
+            class="video-card featured-video"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="video-thumb"
+              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1598974357801-cbca100e5d10?w=900&q=80"
+                alt="ARHICA Story"
+              />
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <div class="video-duration">4:32</div>
+            </div>
+            <div class="video-info">
+              <span class="video-cat">Organization Story</span>
+              <h4>
+                ARHICA: Building Climate Resilience in the Heart of Africa
+              </h4>
+              <p>
+                An overview of ARHICA's mission, programs and impact across the
+                Lake Victoria Basin communities.
+              </p>
+            </div>
+          </div>
+
+          <div class="video-card" data-aos="fade-up" data-aos-delay="150">
+            <div
+              class="video-thumb"
+              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80"
+                alt="Aquaculture"
+              />
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <div class="video-duration">3:15</div>
+            </div>
+            <div class="video-info">
+              <span class="video-cat">Blue Economy</span>
+              <h4>Inside the Fish Cage Enterprise Program</h4>
+            </div>
+          </div>
+
+          <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="video-thumb"
+              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80"
+                alt="SamakiLog"
+              />
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <div class="video-duration">2:48</div>
+            </div>
+            <div class="video-info">
+              <span class="video-cat">Technology</span>
+              <h4>SamakiLog App Demo & Impact</h4>
+            </div>
+          </div>
+
+          <div class="video-card" data-aos="fade-up" data-aos-delay="250">
+            <div
+              class="video-thumb"
+              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80"
+                alt="Conservation"
+              />
+              <div class="video-play-btn"><i class="fas fa-play"></i></div>
+              <div class="video-duration">5:10</div>
+            </div>
+            <div class="video-info">
+              <span class="video-cat">Environment</span>
+              <h4>Community Conservation Drive 2024</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+      <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" onclick="closeVideoModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="video-modal-player">
+          <iframe
+            id="videoIframe"
+            src=""
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-tag">Find Us</div>
+          <h2>Our Location</h2>
+          <p>
+            Visit us at Palmers Hotel, Kisumu — in the heart of the Lake
+            Victoria Basin.
+          </p>
+        </div>
+        <div class="map-wrapper" data-aos="fade-up" data-aos-delay="150">
+          <div class="map-info-panel">
+            <div class="map-info-item">
+              <div class="map-info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <strong>Address</strong>
+                <span
+                  >Palmers Hotel, Oginga Odinga St,<br />Kisumu City,
+                  Kenya</span
+                >
+              </div>
+            </div>
+            <div class="map-info-item">
+              <div class="map-info-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <span>+254728697188</span>
+              </div>
+            </div>
+            <div class="map-info-item">
+              <div class="map-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>arhicakis@gmail.com</span>
+              </div>
+            </div>
+            <div class="map-info-item">
+              <div class="map-info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Office Hours</strong>
+                <span
+                  >Mon–Fri: 8:00 AM – 5:00 PM<br />Sat: 9:00 AM – 2:00 PM</span
+                >
+              </div>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Palmers+Hotel+Kisumu+Kenya"
+              target="_blank"
+              class="btn btn-primary btn-sm"
+              style="margin-top: 1rem"
+            >
+              <i class="fas fa-directions"></i> Get Directions
+            </a>
+          </div>
+          <div id="map" class="leaflet-map"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner CTA -->
+    <section class="cta-section" id="partner">
+      <div class="cta-bg"></div>
+      <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+          <div class="section-tag light">Join Our Mission</div>
+          <h2>Partner With Us</h2>
+          <p>
+            ARHICA invites development partners, donors, private sector actors,
+            and social investors to join us in building inclusive climate
+            resilience from the heart of Africa.
+          </p>
+          <p class="cta-highlight">
+            Your support will empower youth and vulnerable communities,
+            strengthen the blue economy, advance climate justice, and scale
+            locally grounded solutions with global relevance.
+          </p>
+          <div class="cta-btns">
+            <a href="mailto:arhicakis@gmail.com" class="btn btn-white">
+              <i class="fas fa-envelope"></i> Get in Touch
+            </a>
+            <a href="#contact" class="btn btn-outline-white">
+              <i class="fas fa-map-marker-alt"></i> Contact Info
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-col footer-brand">
+              <div class="footer-logo">
+                <span class="footer-logo-text">ARHICA</span>
+                <p class="footer-logo-sub">
+                  AfriResilience Hub for Inclusive Climate Action
+                </p>
+              </div>
+              <p>
+                Empowering communities across the Lake Victoria Basin through
+                inclusive climate action, blue economy development, and youth
+                empowerment.
+              </p>
+              <div class="footer-contact">
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> Kisumu City, Lake
+                  Victoria Basin, Kenya
+                </p>
+                <p><i class="fas fa-phone"></i> +254728697188</p>
+                <p><i class="fas fa-envelope"></i> arhicakis@gmail.com</p>
+              </div>
+              <div class="social-icons">
+                <a href="https://x.com/Arhicake26" aria-label="Twitter"
+                  ><i class="fa-brands fa-square-x-twitter"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/share/14PScUybsmw/"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/afriresilience-hub-for-inclusive-climate-action-5673483a4"
+                  aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/arhi.cakis/"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="footer-col">
+              <h4>Quick Links</h4>
+              <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+              <a href="#about"><i class="fas fa-chevron-right"></i> About Us</a>
+              <a href="#problem"
+                ><i class="fas fa-chevron-right"></i> The Problem</a
+              >
+              <a href="#initiatives"
+                ><i class="fas fa-chevron-right"></i> Initiatives</a
+              >
+              <a href="#impact"><i class="fas fa-chevron-right"></i> Impact</a>
+              <a href="#articles"
+                ><i class="fas fa-chevron-right"></i> Articles</a
+              >
+              <a href="#videos"><i class="fas fa-chevron-right"></i> Videos</a>
+              <a href="#partner"
+                ><i class="fas fa-chevron-right"></i> Partner With Us</a
+              >
+            </div>
+
+            <div class="footer-col">
+              <h4>Focus Areas</h4>
+              <a href="#"><i class="fas fa-check-circle"></i> Climate Action</a>
+              <a href="#"><i class="fas fa-check-circle"></i> Blue Economy</a>
+              <a href="#"
+                ><i class="fas fa-check-circle"></i> Youth Empowerment</a
+              >
+              <a href="#"><i class="fas fa-check-circle"></i> Food Systems</a>
+              <a href="#"
+                ><i class="fas fa-check-circle"></i> Environmental
+                Sustainability</a
+              >
+              <a href="#"
+                ><i class="fas fa-check-circle"></i> Community Governance</a
+              >
+              <a href="#"
+                ><i class="fas fa-check-circle"></i> Gender Equality</a
+              >
+              <a href="#"
+                ><i class="fas fa-check-circle"></i> Social Inclusion</a
+              >
+            </div>
+
+            <div class="footer-col">
+              <h4>Newsletter</h4>
+              <p>
+                Subscribe to receive the latest updates on ARHICA's initiatives,
+                stories, and impact.
+              </p>
+              <form id="newsletterForm" class="newsletter-form">
+                <div class="newsletter-input-wrap">
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    required
+                  />
+                  <button type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
+                <div class="newsletter-msg" id="newsletterMsg"></div>
+              </form>
+              <div class="footer-badges">
+                <span>🌿 Climate Pledge</span>
+                <span>🤝 SDG Partner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            &copy; <span id="year"></span> AfriResilience Hub for Inclusive
+            Climate Action (ARHICA). All rights reserved.
+          </p>
+          <p>Kisumu City | Lake Victoria Basin | Africa</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AfriResilience Hub for Inclusive Climate Action",
+        "url": "https://arhica.org",
+        "logo": "https://arhica.org/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kisumu",
+          "addressCountry": "KE"
+        }
+      }
+    </script>
+
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,283 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teams and Leads</title>
-    <!-- Font Awesome 6 & Inter font -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="team.css" />
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="android-chrome-512x512.png"
-      sizes="512x512"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link rel="icon" href="favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="apple-touch-icon.png"
-    />
-  </head>
-  <body>
-    <div class="wrapper">
-      <!-- header -->
-      <div class="dept-header">
-        <h1>
-          <i class="fas fa-users-between-lines"></i> teams & department leads
-        </h1>
-        <p>core managerial · tier III · lead images & names</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARHICA | Teams & Departments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" href="android-chrome-512x512.png" sizes="512x512" />
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="team.css" />
+</head>
+<body>
 
-      <!-- decision flow banner (same) -->
-      <div class="flow-banner">
-        <div class="flow-card">
-          <h3><i class="fas fa-arrow-up"></i> top‑down (strategic)</h3>
+  <!-- Ambient background -->
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Breadcrumb nav -->
+  <nav class="breadcrumb-nav">
+    <a href="index.html"><i class="fas fa-leaf"></i> ARHICA</a>
+    <span class="sep">/</span>
+    <a href="management.html">Organization</a>
+    <span class="sep">/</span>
+    <span>Teams &amp; Departments</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-label">Organizational Structure</div>
+      <h1 class="hero-title">Teams &amp; <em>Department Leads</em></h1>
+      <p class="hero-sub">Core managerial structure, operational teams, and the dedicated leaders driving inclusive climate action across the Lake Victoria Basin.</p>
+      <div class="hero-line"></div>
+      <div class="hero-pills">
+        <span><i class="fas fa-arrow-up"></i> Strategic Flow</span>
+        <span><i class="fas fa-rotate"></i> Learning &amp; Adaptation</span>
+        <span><i class="fas fa-arrow-down"></i> Operational Insights</span>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      <span>Scroll</span>
+    </div>
+  </header>
+
+  <main class="wrapper">
+
+    <!-- Decision Flow Banner -->
+    <section class="flow-section reveal" data-delay="0">
+      <div class="flow-header">
+        <div class="flow-eyebrow">Decision Flow</div>
+        <h2>How Decisions Move</h2>
+      </div>
+      <div class="flow-cards">
+        <div class="flow-card flow-up">
+          <div class="flow-icon"><i class="fas fa-arrow-up"></i></div>
+          <h3>Top-Down Strategic</h3>
           <ul>
-            <!-- items omitted for brevity, but keep them -- same as before -->
-            <li>
-              <i class="fas fa-circle-check"></i> Vision, mission, amendments
-            </li>
-            <li><i class="fas fa-circle-check"></i> Org structure changes</li>
-            <li><i class="fas fa-circle-check"></i> Annual budgets & audits</li>
+            <li><i class="fas fa-circle-dot"></i> Vision, mission &amp; amendments</li>
+            <li><i class="fas fa-circle-dot"></i> Organizational structure changes</li>
+            <li><i class="fas fa-circle-dot"></i> Annual budgets &amp; audits</li>
           </ul>
         </div>
-        <div class="flow-card">
-          <h3><i class="fas fa-arrow-down"></i> bottom‑up (operational)</h3>
+        <div class="flow-center-icon">
+          <i class="fas fa-rotate"></i>
+        </div>
+        <div class="flow-card flow-down">
+          <div class="flow-icon"><i class="fas fa-arrow-down"></i></div>
+          <h3>Bottom-Up Operational</h3>
           <ul>
-            <li><i class="fas fa-circle-check"></i> Program adjustments</li>
-            <li><i class="fas fa-circle-check"></i> Community feedback</li>
-            <li><i class="fas fa-circle-check"></i> Field innovations</li>
+            <li><i class="fas fa-circle-dot"></i> Program adjustments</li>
+            <li><i class="fas fa-circle-dot"></i> Community feedback</li>
+            <li><i class="fas fa-circle-dot"></i> Field innovations</li>
           </ul>
         </div>
       </div>
+    </section>
 
-      <!-- CORE MANAGERIAL DEPARTMENTS (with TEAM LEAD photo + name) -->
-      <div class="section-title">
-        <h2><i class="fas fa-briefcase"></i> CORE MANAGERIAL & LEADS</h2>
+    <!-- Core Managerial -->
+    <section class="dept-section">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span><i class="fas fa-briefcase"></i> Core Managerial &amp; Leads</span>
+        <div class="eyebrow-line"></div>
       </div>
+
       <div class="dept-grid">
+
         <!-- A. Programs & Technical -->
-        <div class="dept-card">
-          <div class="dept-icon"><i class="fas fa-seedling"></i></div>
-          <div class="dept-name">Programs & Technical</div>
-          <!-- team lead block -->
-          <div class="team-lead">
-            <img src="logo.jpeg" alt="lead" class="lead-img" />
-            <div class="lead-info">
-              <span class="lead-role-tag"
-                ><i class="fa-regular fa-star"></i> team lead</span
-              >
-              <div class="lead-name">
-                Dr. Fatima Mbeki
-                <i class="fas fa-badge-check" style="color: #0f7b6e"></i>
-              </div>
+        <article class="dept-card reveal" data-delay="0">
+          <div class="dept-card-top">
+            <div class="dept-icon-wrap">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <div class="dept-badge">Tier II</div>
+          </div>
+          <h3 class="dept-name">Programs &amp; Technical</h3>
+          <div class="team-lead-block">
+            <div class="lead-photo-wrap">
+              <img src="logo.jpeg" alt="Dr. Fatima Mbeki" class="lead-img"
+                   onerror="this.src='https://ui-avatars.com/api/?name=Fatima+Mbeki&background=0b5e3e&color=fff&size=120'">
+              <div class="lead-ring"></div>
+            </div>
+            <div class="lead-details">
+              <span class="lead-tag"><i class="fas fa-star"></i> Team Lead</span>
+              <div class="lead-name">Dr. Fatima Mbeki <i class="fas fa-circle-check verified"></i></div>
             </div>
           </div>
           <ul class="role-list">
-            <li>
-              <i class="fas fa-user-tie"></i> Program Manager – Climate Justice
-              & Adaptation
-            </li>
-            <li>
-              <i class="fas fa-user-tie"></i> Program Manager – Inclusive Food
-              Systems
-            </li>
-            <li>
-              <i class="fas fa-user-tie"></i> Program Manager – Disability
-              Inclusion & Social Protection
-            </li>
-            <li><i class="fas fa-flask"></i> Research & Policy Lead</li>
+            <li><i class="fas fa-user-tie"></i> Program Manager – Climate Justice &amp; Adaptation</li>
+            <li><i class="fas fa-user-tie"></i> Program Manager – Inclusive Food Systems</li>
+            <li><i class="fas fa-user-tie"></i> Program Manager – Disability Inclusion &amp; Social Protection</li>
+            <li><i class="fas fa-flask"></i> Research &amp; Policy Lead</li>
             <li><i class="fas fa-chart-line"></i> MEL Manager</li>
-            <li>
-              <i class="fas fa-users"></i> Program Officers / Project Officers
-            </li>
+            <li><i class="fas fa-users"></i> Program Officers / Project Officers</li>
           </ul>
-        </div>
+        </article>
 
         <!-- B. Finance & Administration -->
-        <div class="dept-card">
-          <div class="dept-icon"><i class="fas fa-coins"></i></div>
-          <div class="dept-name">Finance & Administration</div>
-          <div class="team-lead">
-            <img src="logo.jpeg" alt="lead" class="lead-img" />
-            <div class="lead-info">
-              <span class="lead-role-tag"
-                ><i class="fa-regular fa-star"></i> team lead</span
-              >
-              <div class="lead-name">
-                James Omondi, CPA <i class="fas fa-badge-check"></i>
-              </div>
+        <article class="dept-card reveal" data-delay="100">
+          <div class="dept-card-top">
+            <div class="dept-icon-wrap finance">
+              <i class="fas fa-coins"></i>
+            </div>
+            <div class="dept-badge">Tier II</div>
+          </div>
+          <h3 class="dept-name">Finance &amp; Administration</h3>
+          <div class="team-lead-block">
+            <div class="lead-photo-wrap">
+              <img src="WhatsApp Image 2026-04-05 at 16.33.32.jpeg" alt="ms.Evaline" class="lead-img"
+                   onerror="this.src='https://ui-avatars.com/api/?name=James+Omondi&background=d97706&color=fff&size=120'">
+              <div class="lead-ring"></div>
+            </div>
+            <div class="lead-details">
+              <span class="lead-tag"><i class="fas fa-star"></i> Team Lead</span>
+              <div class="lead-name">Ms.Evaline Oluoch <i class="fas fa-circle-check verified"></i></div>
             </div>
           </div>
           <ul class="role-list">
             <li><i class="fas fa-user-tie"></i> Finance Manager</li>
             <li><i class="fas fa-calculator"></i> Accountant</li>
-            <li>
-              <i class="fas fa-truck"></i> Procurement & Logistics Officer
-            </li>
+            <li><i class="fas fa-truck"></i> Procurement &amp; Logistics Officer</li>
             <li><i class="fas fa-pen"></i> Administrative Officer</li>
             <li><i class="fas fa-broom"></i> Office Assistant</li>
           </ul>
-        </div>
+        </article>
 
-        <!-- C. Human Resource & Safeguarding -->
-        <div class="dept-card">
-          <div class="dept-icon"><i class="fas fa-hand-holding-heart"></i></div>
-          <div class="dept-name">HR & Safeguarding</div>
-          <div class="team-lead">
-            <img src="favicon-96x96.png" alt="lead" class="lead-img" />
-            <div class="lead-info">
-              <span class="lead-role-tag"
-                ><i class="fa-regular fa-star"></i> team lead</span
-              >
-              <div class="lead-name">
-                Eunice Akinyi <i class="fas fa-badge-check"></i>
-              </div>
+        <!-- C. HR & Safeguarding -->
+        <article class="dept-card reveal" data-delay="200">
+          <div class="dept-card-top">
+            <div class="dept-icon-wrap hr">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <div class="dept-badge">Tier II</div>
+          </div>
+          <h3 class="dept-name">HR &amp; Safeguarding</h3>
+          <div class="team-lead-block">
+            <div class="lead-photo-wrap">
+              <img src="favicon-96x96.png" alt="Eunice Akinyi" class="lead-img"
+                   onerror="this.src='https://ui-avatars.com/api/?name=Eunice+Akinyi&background=e05a2b&color=fff&size=120'">
+              <div class="lead-ring"></div>
+            </div>
+            <div class="lead-details">
+              <span class="lead-tag"><i class="fas fa-star"></i> Team Lead</span>
+              <div class="lead-name">Eunice Akinyi <i class="fas fa-circle-check verified"></i></div>
             </div>
           </div>
           <ul class="role-list">
             <li><i class="fas fa-user-tie"></i> Human Resource Manager</li>
             <li><i class="fas fa-user"></i> HR Officer</li>
-            <li>
-              <i class="fas fa-shield-heart"></i> Safeguarding & Child
-              Protection Officer
-            </li>
-            <li>
-              <i class="fas fa-venus-mars"></i> Gender & Disability Inclusion
-              Officer
-            </li>
-            <li>
-              <i class="fas fa-hand-holding-heart"></i> Staff Welfare Officer
-            </li>
+            <li><i class="fas fa-shield-heart"></i> Safeguarding &amp; Child Protection Officer</li>
+            <li><i class="fas fa-venus-mars"></i> Gender &amp; Disability Inclusion Officer</li>
+            <li><i class="fas fa-hand-holding-heart"></i> Staff Welfare Officer</li>
           </ul>
-        </div>
+        </article>
 
-        <!-- D. Partnerships, Comms & Resource Mobilization -->
-        <div class="dept-card">
-          <div class="dept-icon"><i class="fas fa-handshake"></i></div>
-          <div class="dept-name">Partnerships & Comms</div>
-          <div class="team-lead">
-            <img src="public.png" alt="lead" class="lead-img" />
-            <div class="lead-info">
-              <span class="lead-role-tag"
-                ><i class="fa-regular fa-star"></i> team lead</span
-              >
-              <div class="lead-name">
-                Mr.Felix Otieno Opiyo  <i class="fas fa-badge-check"></i>
-              </div>
+        <!-- D. Partnerships & Comms -->
+        <article class="dept-card reveal" data-delay="300">
+          <div class="dept-card-top">
+            <div class="dept-icon-wrap comms">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="dept-badge">Tier II</div>
+          </div>
+          <h3 class="dept-name">Partnerships &amp; Comms</h3>
+          <div class="team-lead-block">
+            <div class="lead-photo-wrap">
+              <img src="public.png" alt="Mr. Felix Otieno Opiyo" class="lead-img"
+                   onerror="this.src='https://ui-avatars.com/api/?name=Felix+Opiyo&background=0f7b9e&color=fff&size=120'">
+              <div class="lead-ring"></div>
+            </div>
+            <div class="lead-details">
+              <span class="lead-tag"><i class="fas fa-star"></i> Team Lead</span>
+              <div class="lead-name">Mr. Felix Otieno Opiyo <i class="fas fa-circle-check verified"></i></div>
             </div>
           </div>
           <ul class="role-list">
-            <li>
-              <i class="fas fa-handshake"></i> Partnerships & Donor Relations
-              Manager
-            </li>
-            <li>
-              <i class="fas fa-file-signature"></i> Grants & Proposal
-              Development Officer
-            </li>
-            <li>
-              <i class="fas fa-bullhorn"></i> Communications & Advocacy Officer
-            </li>
-            <li>
-              <i class="fas fa-digital-tiling"></i> Digital Media & Knowledge
-              Management Officer
-            </li>
+            <li><i class="fas fa-handshake"></i> Partnerships &amp; Donor Relations Manager</li>
+            <li><i class="fas fa-file-signature"></i> Grants &amp; Proposal Development Officer</li>
+            <li><i class="fas fa-bullhorn"></i> Communications &amp; Advocacy Officer</li>
+            <li><i class="fas fa-mobile-screen"></i> Digital Media &amp; Knowledge Management</li>
           </ul>
-        </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Tier III: Operations & Field -->
+    <section class="tier-section">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span><i class="fas fa-people-arrows"></i> Tier III: Operations &amp; Field</span>
+        <div class="eyebrow-line"></div>
       </div>
 
-      <!-- TIER III: OPERATIONS & FIELD (we add an example lead inside one of the cards to show flexibility) -->
-      <div class="section-title">
-        <h2>
-          <i class="fas fa-people-arrows"></i> TIER III: OPERATIONS & FIELD
-        </h2>
-      </div>
       <div class="tier-grid">
-        <div class="tier-card">
-          <h3>📋 Program & Project Delivery</h3>
-          <!-- example lead inside tier: "Field Coordinator" -->
-          <div class="tier-lead">
-            <img src="logo.jpeg" alt="field cord" />
-            <span
-              ><strong>Vincent Odhiambo</strong> – Field Coordinator
-              (lead)</span
-            >
+
+        <div class="tier-card reveal" data-delay="0">
+          <div class="tier-card-header">
+            <div class="tier-icon"><i class="fas fa-clipboard-list"></i></div>
+            <h3>Program &amp; Project Delivery</h3>
           </div>
-          <ul class="subrole-list">
+          <div class="tier-lead-block">
+            <img src="refied.jpg" alt="Vincent Odhiambo" class="tier-lead-img"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Vincent+Odhiambo&background=0b5e3e&color=fff&size=100'">
+            <div>
+              <div class="tier-lead-name">Ms.Novie Joan Okuku</div>
+              <div class="tier-lead-role">Field Coordinator (Lead)</div>
+            </div>
+          </div>
+          <ul class="sub-list">
             <li>Project Coordinator (per project)</li>
             <li>Field Program Officers</li>
             <li>Community Mobilizers</li>
-            <li>
-              Extension / Technical Officers (Climate, Agriculture, Inclusion)
-            </li>
+            <li>Extension / Technical Officers</li>
           </ul>
-          <h3 style="margin-top: 1.2rem">🔬 Research, Data & Learning</h3>
-          <ul class="subrole-list">
-            <li>Field Researchers / Enumerators</li>
-            <li>Data Officers</li>
-            <li>Community Learning Facilitators</li>
-          </ul>
-        </div>
-        <div class="tier-card">
-          <h3>🚚 Support & Logistics</h3>
-          <!-- lead example: operations coordinator -->
-          <div class="tier-lead">
-            <img src="logo.jpeg" alt="ops lead" />
-            <span><strong>Mariam Hassan</strong> – Operations Lead</span>
+          <div class="tier-subsection">
+            <div class="tier-sub-title"><i class="fas fa-microscope"></i> Research, Data &amp; Learning</div>
+            <ul class="sub-list">
+              <li>Field Researchers / Enumerators</li>
+              <li>Data Officers</li>
+              <li>Community Learning Facilitators</li>
+            </ul>
           </div>
-          <ul class="subrole-list">
-            <li>Transport & Fleet Officer</li>
+        </div>
+
+        <div class="tier-card reveal" data-delay="150">
+          <div class="tier-card-header">
+            <div class="tier-icon logistics"><i class="fas fa-truck"></i></div>
+            <h3>Support &amp; Logistics</h3>
+          </div>
+          <div class="tier-lead-block">
+            <img src="CV" alt="Mariam Hassan" class="tier-lead-img"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Mariam+Hassan&background=d97706&color=fff&size=100'">
+            <div>
+              <div class="tier-lead-name">CK</div>
+              <div class="tier-lead-role">Operations Lead</div>
+            </div>
+          </div>
+          <ul class="sub-list">
+            <li>Transport &amp; Fleet Officer</li>
             <li>Storekeeper</li>
             <li>ICT / Systems Support Officer</li>
           </ul>
-          <h3 style="margin-top: 1.2rem">🛡️ Security & Facilities</h3>
-          <ul class="subrole-list">
-            <li>Security Supervisor</li>
-            <li>Security Guards</li>
-            <li>Caretaker / Groundskeeper</li>
-            <li>Cleaner</li>
-          </ul>
+          <div class="tier-subsection">
+            <div class="tier-sub-title"><i class="fas fa-shield-halved"></i> Security &amp; Facilities</div>
+            <ul class="sub-list">
+              <li>Security Supervisor</li>
+              <li>Security Guards</li>
+              <li>Caretaker / Groundskeeper</li>
+              <li>Cleaner</li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <!-- flow footnote -->
-      <div class="flow-footnote">
-        <span
-          ><i class="fas fa-arrow-trend-up"></i> strategic: board & senior</span
-        >
-        <span
-          ><i class="fas fa-arrow-trend-down"></i> operational insights flow
-          up</span
-        >
-        <span><i class="fas fa-rotate"></i> learning & adaptation</span>
       </div>
+    </section>
 
-      <!-- footer -->
-      <div class="page-footer">
-        <span
-          ><i class="fa-regular fa-user"></i> team leads featured in each
-          department</span
-        >
+    <!-- Flow Footnote -->
+    <div class="flow-footnote reveal" data-delay="0">
+      <div class="footnote-item">
+        <i class="fas fa-arrow-trend-up"></i>
+        <span>Strategic: Board &amp; Senior Leadership</span>
+      </div>
+      <div class="footnote-divider"></div>
+      <div class="footnote-item">
+        <i class="fas fa-arrow-trend-down"></i>
+        <span>Operational Insights Flow Up</span>
+      </div>
+      <div class="footnote-divider"></div>
+      <div class="footnote-item">
+        <i class="fas fa-rotate"></i>
+        <span>Continuous Learning &amp; Adaptation</span>
       </div>
     </div>
-    <script>
-      console.log("team leads with images ");
-    </script>
-  </body>
+
+    <!-- Page footer -->
+    <div class="page-footer">
+      <div class="footer-divider">
+        <span class="footer-icon"><i class="fas fa-leaf"></i></span>
+      </div>
+      <p class="footer-tagline">Teams · Accountability · Resilience · Inclusion</p>
+      <a href="index.html" class="footer-back">
+        <i class="fas fa-arrow-left"></i> Back to Main Site
+      </a>
+    </div>
+
+  </main>
+
+  <script src="teams.js"></script>
+</body>
 </html>
