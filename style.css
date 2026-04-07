@@ -93,6 +93,7 @@ img { max-width: 100%; display: block; }
   }
   #preloader{
     height: 100vh;
+    width: 100%;
   }
   @keyframes centerFix {
     0% {
