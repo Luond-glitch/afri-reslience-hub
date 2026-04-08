@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ARHICA — Support Inclusive Climate Action</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="donation.css">
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div>
+      <span class="brand">ARHICA</span><br>
+      <span class="tag">Climate Action Hub</span>
+    </div>
+  </div>
+  <a href="main.html" class="nav-back"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <canvas class="hero-particles" id="particlesCanvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow"><i class="fas fa-globe-africa"></i> Lake Victoria Basin, Kenya</div>
+    <h1>Fuel <em>Climate</em><br>Resilience</h1>
+    <p>Your support directly empowers youth, women, and vulnerable communities to lead inclusive climate action across East Africa.</p>
+    <div class="hero-cta">
+      <a href="#donate" class="btn-primary"><i class="fas fa-hand-holding-heart"></i> Donate Now</a>
+      <a href="#how-to-pay" class="btn-secondary">How to Pay <i class="fas fa-arrow-down"></i></a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Community Led</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Years Active</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">KES</div>
+      <div class="stat-label">Accepted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Mobile Networks</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section class="payment-section" id="how-to-pay">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-mobile-alt"></i> Payment Methods</div>
+      <h2>Simple, Secure<br>Mobile Giving</h2>
+      <p>Use any Kenyan mobile money service to donate in minutes. No account registration required.</p>
+    </div>
+
+    <div class="paybill-hero reveal">
+      <div class="paybill-hero-text">
+        <h3>AfriResilience Hub for Inclusive Climate Actions</h3>
+        <p>Official registered Paybill — accepted on all major networks</p>
+      </div>
+      <div class="paybill-codes">
+        <div class="code-block">
+          <div class="code-label">Paybill Number</div>
+          <div class="code-value">522533</div>
+        </div>
+        <div class="code-block">
+          <div class="code-label">Account Number</div>
+          <div class="code-value">8074844</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="methods-grid">
+      <div class="method-card reveal reveal-delay-1">
+        <div class="method-icon"><i class="fas fa-wifi"></i></div>
+        <h4>M-Pesa Paybill</h4>
+        <p>The most popular mobile money platform in Kenya. Lipa na M-Pesa directly.</p>
+        <div class="method-number">Paybill 522533 · Acc 8074844</div>
+      </div>
+      <div class="method-card reveal reveal-delay-2">
+        <div class="method-icon"><i class="fas fa-signal"></i></div>
+        <h4>Airtel Money</h4>
+        <p>Airtel subscribers can send via Paybill using the same details seamlessly.</p>
+        <div class="method-number">Paybill 522533 · Acc 8074844</div>
+      </div>
+      <div class="method-card reveal reveal-delay-3">
+        <div class="method-icon"><i class="fas fa-tower-cell"></i></div>
+        <h4>T-Kash by Telkom</h4>
+        <p>Dial *334# on Telkom and navigate to Paybill to complete your gift.</p>
+        <div class="method-number">Paybill 522533 · Acc 8074844</div>
+      </div>
+    </div>
+
+    <div class="steps-list reveal">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h5>Open M-Pesa</h5>
+          <p>Go to Lipa na M-Pesa → Paybill</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h5>Enter Paybill</h5>
+          <p>Business number: <strong>522533</strong></p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h5>Account Number</h5>
+          <p>Enter: <strong>8074844</strong></p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h5>Confirm Amount</h5>
+          <p>Enter your amount and confirm with PIN</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION FORM -->
+<section class="form-section" id="donate">
+  <div class="form-layout">
+    <div class="form-left reveal">
+      <div class="section-label"><i class="fas fa-leaf"></i> Make a Difference</div>
+      <h2>Every Shilling<br>Counts</h2>
+      <p>Fill in your details below and we'll notify our team immediately. Complete payment via M-Pesa after submitting to finalise your donation.</p>
+      <div class="impact-points">
+        <div class="impact-point">
+          <div class="dot"></div>
+          <p>KES 500+ funds community climate awareness sessions</p>
+        </div>
+        <div class="impact-point">
+          <div class="dot"></div>
+          <p>KES 2,500+ supports youth-led climate resilience projects</p>
+        </div>
+        <div class="impact-point">
+          <div class="dot"></div>
+          <p>KES 10,000+ empowers women groups with sustainable livelihood tools</p>
+        </div>
+        <div class="impact-point">
+          <div class="dot"></div>
+          <p>All donations go directly to community programs — 0% admin cut</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal reveal-delay-1">
+      <div class="form-card-header">
+        <h3>Donation Intent Form</h3>
+        <p>Submit your intent, then complete payment via mobile money</p>
+      </div>
+
+      <form id="donationForm">
+        <div class="fg">
+          <label>Full Name *</label>
+          <input type="text" id="fullName" placeholder="Your full name" required>
+        </div>
+        <div class="fg">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="fg">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" placeholder="+2547XXXXXXXX" required>
+        </div>
+        <div class="fg">
+          <label>Donation Amount (KES) *</label>
+          <div class="amount-grid" id="amountPresets">
+            <button type="button" class="amt-btn" data-amount="500">KES 500</button>
+            <button type="button" class="amt-btn" data-amount="1000">KES 1,000</button>
+            <button type="button" class="amt-btn" data-amount="2500">KES 2,500</button>
+            <button type="button" class="amt-btn" data-amount="5000">KES 5,000</button>
+            <button type="button" class="amt-btn" data-amount="10000">KES 10,000</button>
+            <button type="button" class="amt-btn" data-amount="0" id="customTrigger">Other</button>
+          </div>
+          <input type="number" id="customAmount" placeholder="Enter custom amount (KES)" min="10" step="1" style="margin-top:8px;display:none;">
+        </div>
+        <div class="fg">
+          <label>Donation Type</label>
+          <select id="donationType">
+            <option value="one-time">One-Time Donation</option>
+            <option value="monthly">Monthly Giving (Recurring)</option>
+            <option value="corporate">Corporate / In-Kind</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Message (Optional)</label>
+          <textarea rows="3" id="message" placeholder="A message of support for the community..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="fas fa-heart"></i> Complete Donation Intent
+        </button>
+        <div class="secure-note"><i class="fas fa-lock"></i> Your info is secure. Payment completes via M-Pesa 522533.</div>
+      </form>
+
+      <div class="success-card" id="donationSuccessMsg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">ARHICA</div>
+    <div class="footer-tagline">AfriResilience Hub for Inclusive Climate Actions</div>
+    <div class="footer-contacts">
+      <a href="tel:+254728697188"><i class="fas fa-phone"></i> +254 728 697 188</a>
+      <a href="mailto:arhicakis@gmail.com"><i class="fas fa-envelope"></i> arhicakis@gmail.com</a>
+    </div>
+    <div style="font-size:0.8rem;color:rgba(245,240,232,0.3);">Paybill 522533 · Account 8074844</div>
+    <div class="footer-bottom">© 2025 ARHICA. Official Donation Portal. Lake Victoria Basin, Kenya.</div>
+  </div>
+</footer>
+
+<script src="donation.js">
+
+</script>
+</body>
+</html>
