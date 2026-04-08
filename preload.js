@@ -69,7 +69,7 @@ const tips = [
         
         // Redirect to main page
         setTimeout(() => {
-          window.location.href = 'index.html';
+          window.location.href = 'main.html';
         }, 300);
       }
       
@@ -132,6 +132,6 @@ const tips = [
   // Fallback: Ensure redirect happens even if something goes wrong
   setTimeout(() => {
     if (progress < 100) {
-      window.location.href = 'index.html';
+      window.location.href = 'main.html';
     }
   }, 5000);
