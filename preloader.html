@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Loading ARHICA...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #073d27 0%, #0b5e3e 50%, #0f7b9e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      animation: pulseBg 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseBg {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main preloader container - PERFECTLY CENTERED */
+    .preloader-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      z-index: 10;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo section */
+    .logo-wrapper {
+      text-align: center;
+      margin-bottom: clamp(30px, 8vw, 50px);
+    }
+
+    .logo-icon {
+      width: clamp(60px, 15vw, 100px);
+      height: clamp(60px, 15vw, 100px);
+      margin: 0 auto 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(2rem, 8vw, 3rem);
+      animation: pulse 2s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
+      }
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 10vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      letter-spacing: clamp(2px, 1vw, 6px);
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      animation: textGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes textGlow {
+      0%, 100% {
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+      }
+    }
+
+    .logo-sub {
+      font-size: clamp(0.7rem, 3vw, 0.9rem);
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 2px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    /* Progress bar section */
+    .progress-section {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .progress-bar-container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      height: clamp(4px, 1.5vw, 6px);
+      overflow: hidden;
+      margin-bottom: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+      border-radius: 50px;
+      transition: width 0.3s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    /* Percentage text */
+    .percentage-text {
+      text-align: center;
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-weight: 700;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    /* Loading message */
+    .loading-message {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: clamp(0.75rem, 3vw, 0.85rem);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 20px;
+    }
+
+    .loading-dots {
+      display: inline-block;
+    }
+
+    .loading-dots span {
+      animation: blink 1.4s infinite;
+      animation-fill-mode: both;
+    }
+
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0%, 80%, 100% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 1;
+      }
+    }
+
+    /* Tip section */
+    .tip-section {
+      text-align: center;
+      margin-top: clamp(30px, 8vw, 50px);
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tip-label {
+      font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tip-text {
+      font-size: clamp(0.7rem, 3vw, 0.85rem);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .preloader-container {
+        padding: 15px;
+      }
+      
+      .tip-section {
+        margin-top: 40px;
+        padding: 12px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .preloader-container {
+        padding: 10px;
+      }
+      
+      .tip-section {
+        margin-top: 30px;
+      }
+      
+      .progress-section {
+        max-width: 280px;
+      }
+    }
+
+    @media (max-height: 600px) {
+      .logo-wrapper {
+        margin-bottom: 20px;
+      }
+      
+      .tip-section {
+        margin-top: 20px;
+      }
+    }
+
+    /* Fallback for very old browsers */
+    @supports not (backdrop-filter: blur(10px)) {
+      .logo-icon,
+      .progress-bar-container,
+      .tip-section {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dynamic particles will be added here via JS -->
+  
+  <div class="preloader-container">
+    <div class="logo-wrapper">
+      <div class="logo-icon">
+        <img src="favicon-32x32.png" alt="" style="border-radius: 50%; ">
+      </div>
+      <div class="logo-text">ARHICA</div>
+      <div class="logo-sub">AfriResilience Hub for Inclusive Climate Action</div>
+    </div>
+
+    <div class="progress-section">
+      <div class="percentage-text" id="percentage">0%</div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="loading-message">
+        Loading<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>
+      </div>
+    </div>
+
+    <div class="tip-section">
+      <div class="tip-label">💡 Did You Know?</div>
+      <div class="tip-text" id="tipText">ARHICA empowers youth and women across the Lake Victoria Basin</div>
+    </div>
+  </div>
+
+  <script src="preload.js">
+    // Tips array for rotation
+   
+  </script>
+</body>
+</html>
