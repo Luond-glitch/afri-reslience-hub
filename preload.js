@@ -11,12 +11,12 @@ const tips = [
 
   let currentTip = 0;
   let progress = 0;
-  const totalDuration = 2500; // 2.5 seconds total loading time
-  const intervalTime = 30; // Update every 30ms for smooth animation
+  const totalDuration = 2500; 
+  const intervalTime = 30; 
   const steps = totalDuration / intervalTime;
   const increment = 100 / steps;
 
-  // Rotate tips every 2 seconds
+
   setInterval(() => {
     currentTip = (currentTip + 1) % tips.length;
     const tipElement = document.getElementById('tipText');
@@ -91,9 +91,8 @@ const tips = [
     // Preload critical resources for main page
     const links = [
       'style.css',
-      'pop.css',
       'script.js',
-      'pop.js'
+      
     ];
     
     links.forEach(link => {
