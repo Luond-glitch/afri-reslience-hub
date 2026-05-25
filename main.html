@@ -1124,123 +1124,75 @@ Increased youth participation in sustainable agriculture, diversified income str
       </div>
     </section>
 
-    <!-- Videos Section -->
-    <section class="videos-section" id="videos">
-      <div class="videos-bg"></div>
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <div class="section-tag light">Watch & Learn</div>
-          <h2 style="color: white">Videos & Stories</h2>
-          <p style="color: rgba(255, 255, 255, 0.75)">
-            See ARHICA's work in action — community stories, field footage and
-            program highlights.
-          </p>
-        </div>
-        <div class="videos-grid">
-          <div
-          class="video-card featured-video"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div
-            class="video-thumb"
-            onclick="openVideoModal('https://www.youtube.com/embed/N3-b7_uJGAU')"
-          >
-            <img
-              src="logo.jpeg"
-              alt="ARHICA Story"
-            />
-            <div class="video-play-btn"><i class="fas fa-play"></i></div>
-            <div class="video-duration">4:32</div>
-          </div>
-          <div class="video-info">
-            <span class="video-cat">Organization Story</span>
-            <h4>
-              ARHICA: Building Climate Resilience in the Heart of Africa
-            </h4>
-            <p>
-              An overview of ARHICA's mission, programs and impact across the
-              Lake Victoria Basin communities.
-            </p>
-          </div>
-        </div>
+<!-- Videos Section -->
+<section class="videos-section" id="videos">
+  <div class="videos-bg"></div>
 
-          <div class="video-card" data-aos="fade-up" data-aos-delay="150">
-            <div
-              class="video-thumb"
-              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
-            >
-              <img
-                src="blue economy.jpg"
-                alt="Aquaculture"
-              />
-              <div class="video-play-btn"><i class="fas fa-play"></i></div>
-              <div class="video-duration">3:15</div>
-            </div>
-            <div class="video-info">
-              <span class="video-cat">Blue Economy</span>
-              <h4>Inside the Fish Cage Enterprise Program</h4>
-            </div>
-          </div>
-
-          <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-            <div
-              class="video-thumb"
-              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
-            >
-              <img
-                src="samakilog.png"
-                alt="SamakiLog"
-              />
-              <div class="video-play-btn"><i class="fas fa-play"></i></div>
-              <div class="video-duration">2:48</div>
-            </div>
-            <div class="video-info">
-              <span class="video-cat">Technology</span>
-              <h4>SamakiLog App Demo & Impact</h4>
-            </div>
-          </div>
-
-          <div class="video-card" data-aos="fade-up" data-aos-delay="250">
-            <div
-              class="video-thumb"
-              onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')"
-            >
-              <img
-                src="envsteward.jpg"
-                alt="Conservation"
-              />
-              <div class="video-play-btn"><i class="fas fa-play"></i></div>
-              <div class="video-duration">5:10</div>
-            </div>
-            <div class="video-info">
-              <span class="video-cat">Environment</span>
-              <h4>Community Conservation Drive 2024</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-      <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
-      <div class="video-modal-content">
-        <button class="video-modal-close" onclick="closeVideoModal()">
-          <i class="fas fa-times"></i>
-        </button>
-        <div class="video-modal-player">
-          <iframe
-            id="videoIframe"
-            src=""
-            frameborder="0"
-            allowfullscreen
-            allow="autoplay"
-          ></iframe>
-        </div>
-      </div>
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <div class="section-tag light">Watch & Learn</div>
+      <h2 style="color: white">Videos & Stories</h2>
+      <p style="color: rgba(255, 255, 255, 0.75)">
+        See ARHICA's work in action — community stories, field footage and program highlights.
+      </p>
     </div>
 
+    <div class="videos-grid">
+
+      <!-- Featured Video -->
+      <div class="video-card featured-video" data-aos="fade-up" data-aos-delay="100">
+        <video controls preload="metadata" poster="logo.jpeg">
+          <source src="gil.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <span class="video-cat">Organization Story</span>
+          <h4>ARHICA: Building Climate Resilience in the Heart of Africa</h4>
+          <p>
+            An overview of ARHICA's mission, programs and impact across the Lake Victoria Basin communities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card" data-aos="fade-up" data-aos-delay="150">
+        <video controls preload="metadata" poster="blue economy.jpg">
+          <source src="mju.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <span class="video-cat">Blue Economy</span>
+          <h4>Inside the Fish Cage Enterprise Program</h4>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+        <video controls preload="metadata" poster="samakilog.png">
+          <source src="videos/Empowering Fishers with Technology_free.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <span class="video-cat">Technology</span>
+          <h4>SamakiLog App Demo & Impact</h4>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card" data-aos="fade-up" data-aos-delay="250">
+        <video controls preload="metadata" poster="envsteward.jpg">
+          <source src="https://youtu.be/N3-b7_uJGAU" type="video/mp4">
+        </video>
+
+        <div class="video-info">
+          <span class="video-cat">Environment</span>
+          <h4>Community Conservation Drive 2024</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- Map Section -->
     <section class="map-section" id="map-section">
       <div class="container">

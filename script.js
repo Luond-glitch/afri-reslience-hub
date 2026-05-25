@@ -236,33 +236,6 @@ const countObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.hero-stats, .stats-section').forEach(el => countObserver.observe(el));
 
-
-// ── VIDEO MODAL ───────────────────────────────
-function openVideoModal(url) {
-  const modal = document.getElementById('videoModal');
-  const iframe = document.getElementById('videoIframe');
-  if (modal && iframe) {
-    iframe.src = url + '?autoplay=1';
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeVideoModal() {
-  const modal = document.getElementById('videoModal');
-  const iframe = document.getElementById('videoIframe');
-  if (modal && iframe) {
-    modal.classList.remove('open');
-    iframe.src = '';
-    document.body.style.overflow = '';
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeVideoModal();
-});
-
-
 // ── LEAFLET MAP ───────────────────────────────
 (function initMap() {
   const mapEl = document.getElementById('map');
