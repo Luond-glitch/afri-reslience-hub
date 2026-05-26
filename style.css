@@ -1,7 +1,3 @@
-/* ========================================
-   ARHICA - Modern Redesign CSS
-   Deep green + Lake blue + Earthy amber
-   ======================================== */
 
    :root {
     --forest: #0b5e3e;
@@ -448,7 +444,7 @@
   .hero-bg-video {
     position: absolute;
     inset: 0;
-    background: url('/ocharifredrick-fishing-4842611_1920.jpg') center/cover no-repeat;
+    background: url('videos/images/ocharifredrick-fishing-4842611_1920.jpg') center/cover no-repeat;
   }
   
   .hero-overlay {
@@ -1326,7 +1322,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: url('/ocharifredrick-fishing-4842611_1920.jpg') center/cover;
+    background: url('videos/images/ocharifredrick-fishing-4842611_1920.jpg') center/cover;
     opacity: 0.08;
   }
   
