@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e0f0e8 0%, #c8dfd3 50%, #b2cdbf 100%);
+    color: #1a2c3e;
+    line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(80, 160, 120, 0.12) 0%, rgba(60, 130, 90, 0.06) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: "🌿🍃🌱";
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 80px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container-careers {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .careers-header {
+    background: linear-gradient(125deg, #0a3c2a 0%, #1b6e48 50%, #2a8a5c 100%);
+    color: white;
+    border-radius: 2rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    box-shadow: 0 30px 45px -18px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .careers-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,130,0.15) 0%, transparent 70%);
+    animation: shimmer 12s infinite linear;
+  }
+  @keyframes shimmer {
+    0% { transform: translate(-20%, -20%) rotate(0deg); }
+    100% { transform: translate(20%, 20%) rotate(360deg); }
+  }
+  .careers-header::after {
+    content: "🌾🌻";
+    font-size: 200px;
+    position: absolute;
+    bottom: -50px;
+    right: -30px;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .careers-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    animation: fadeInUp 0.6s ease;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  .careers-header h1 i {
+    margin-right: 12px;
+    color: #ffde8a;
+  }
+  .careers-header p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 0.6s 0.1s backwards;
+  }
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    margin-top: 1.8rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.25s;
+    animation: fadeInUp 0.6s 0.2s backwards;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .back-home:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-3px);
+  }
+
+  .career-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .tab-btn {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #1b4d3a;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(100,150,120,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .tab-btn i {
+    font-size: 1.1rem;
+  }
+  .tab-btn.active {
+    background: linear-gradient(135deg, #236b48, #1a8a58);
+    color: white;
+    border-color: #2d8a5a;
+    box-shadow: 0 12px 22px -12px rgba(27,107,69,0.5);
+    transform: scale(1.02);
+  }
+  .tab-btn:hover:not(.active) {
+    background: white;
+    transform: translateY(-3px);
+    border-color: #7abf9a;
+  }
+
+  .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .opportunity-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(4px);
+    border-radius: 2rem;
+    padding: 1.8rem;
+    box-shadow: 0 20px 35px -14px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 1px solid rgba(100, 140, 110, 0.3);
+    position: relative;
+  }
+  .opportunity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.22);
+    border-color: #8bc3a2;
+    background: white;
+  }
+  .expired-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  .card-badge {
+    display: inline-block;
+    background: linear-gradient(120deg, #e0f0e8, #cce8db);
+    color: #1f6e43;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .opportunity-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #0c2e24;
+    font-weight: 700;
+    padding-right: 40px;
+  }
+  .opportunity-card .desc {
+    color: #2c5140;
+    margin-bottom: 1.2rem;
+    line-height: 1.55;
+  }
+  .meta-info {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #547864;
+    border-top: 1px solid #e2efe8;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .meta-info span i {
+    margin-right: 5px;
+    color: #3d8b62;
+  }
+  .apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(95deg, #1b6b45, #258a58);
+    color: white;
+    text-decoration: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .apply-btn:hover {
+    background: linear-gradient(95deg, #0f5436, #1a734a);
+    transform: scale(0.97);
+  }
+  .delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 70, 50, 0.9);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .delete-btn:hover {
+    background: #c0392b;
+    transform: scale(0.97);
+  }
+  body.admin-mode .delete-btn {
+    display: inline-flex;
+  }
+  .delete-btn {
+    display: none;
+  }
+  .card-footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .empty-state {
+    text-align: center;
+    background: rgba(255,255,245,0.95);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    grid-column: 1 / -1;
+    border: 2px dashed #7aa78a;
+  }
+  .empty-state svg {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+  .empty-state h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c5a44;
+    margin-bottom: 0.5rem;
+  }
+  .empty-state p {
+    color: #5a7b68;
+    font-size: 1.1rem;
+  }
+
+  .admin-panel {
+    display: none;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 2rem;
+    margin-top: 3rem;
+    padding: 1.8rem;
+    border: 1px solid #bfdbc9;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
+  body.admin-mode .admin-panel {
+    display: block;
+    animation: fadeSlideUp 0.4s ease;
+  }
+  .admin-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #236b48;
+  }
+  .admin-form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid #d2e6dc;
+    padding-top: 1.5rem;
+  }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .form-row input, .form-row select, .form-row textarea {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border: 1px solid #cde0d6;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .form-row input:focus, select:focus, textarea:focus {
+    border-color: #2a7a54;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 122, 80, 0.2);
+  }
+  .btn-admin {
+    background: #1b6b45;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    color: white;
+    font-weight: 600;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1rem;
+  }
+  .btn-admin:hover {
+    background: #0c5439;
+    transform: translateY(-2px);
+  }
+  .admin-mode-hint {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1b6b45;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+  }
+  body.admin-mode .admin-mode-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: #446b58;
+    border-top: 1px solid rgba(100, 128, 110, 0.4);
+    background: rgba(255,255,245,0.6);
+    border-radius: 2rem;
+  }
+  .deadline-expired {
+    color: #e74c3c;
+    text-decoration: line-through;
+  }
+  .contact-email {
+    font-size: 0.85rem;
+    color: #1b6b45;
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e2efe8;
+    word-break: break-all;
+  }
+  .contact-email i {
+    margin-right: 6px;
+    color: #3d8b62;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 700px) {
+    .careers-header h1 { font-size: 2rem; }
+    .tab-btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+    .opportunities-grid { grid-template-columns: 1fr; }
+  }
