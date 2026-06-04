@@ -29,6 +29,7 @@
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="event-popup.js"></script>
 
     <!-- AOS Animation -->
     <link
@@ -38,6 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="event-popup.css">
     
   </head>
   <body>
@@ -75,7 +77,22 @@
         }
       })();
     </script> 
+    <script>
+      // Load the popup HTML dynamically
+      fetch('event-popup.html')
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById('eventPopupContainer').innerHTML = html;
+              // Load the popup JS after HTML is injected
+              const script = document.createElement('script');
+              script.src = 'event-popup.js';
+              document.body.appendChild(script);
+          })
+          .catch(error => console.error('Error loading popup:', error));
+  </script>
+<div id="eventPopupContainer"></div>
     <!-- Top Bar -->
+    
     <div class="topbar">
       <div class="container">
         <div class="topbar-left">

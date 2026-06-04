@@ -1,0 +1,344 @@
+/* event-popup.css - CORRECTED: Popup stays at TOP */
+/* ========== EVENT POPUP MODULE - Complete CSS ========== */
+
+.event-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: flex-start;  /* ← CHANGE THIS from 'center' to 'flex-start' */
+    justify-content: center;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    font-family: 'DM Sans', sans-serif;
+    overflow-y: auto;  /* ← ADD THIS to allow scrolling if popup is tall */
+    padding: 20px;     /* ← ADD THIS for some spacing at top */
+    box-sizing: border-box;
+  }
+  
+  .event-popup-overlay.hidden-popup {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .event-popup-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    max-width: 620px;
+    width: 90%;
+    border-radius: 48px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(245, 158, 11, 0.2);
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    animation: popupGlide 0.5s ease-out;
+    margin-top: 40px;  /* ← ADD THIS for spacing from top */
+  }
+  
+  @keyframes popupGlide {
+    from {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.96);  /* ← CHANGE from translateY(40px) to negative */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .event-popup-header {
+    background: linear-gradient(135deg, #0f7b9e, #073d27);
+    padding: 1.5rem 2rem;
+    color: white;
+    position: relative;
+  }
+  
+  /* Add a close (X) button in header */
+  .event-popup-close-x {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .event-popup-close-x:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+  
+  .event-popup-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .event-popup-header p {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 0.9rem;
+  }
+  
+  .event-date-badge {
+    background: #f59e0b;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .event-popup-body {
+    padding: 1.8rem 2rem 2rem;
+  }
+  
+  /* Route Section */
+  .event-route {
+    background: #eef2ff;
+    border-radius: 24px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .route-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .route-steps span i {
+    margin-right: 5px;
+    color: #0f7b9e;
+  }
+  
+  .route-distance {
+    background: white;
+    padding: 0.3rem 0.9rem;
+    border-radius: 40px;
+    font-weight: bold;
+    color: #073d27;
+  }
+  
+  /* Info Grid */
+  .event-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 0.9rem;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .info-box i {
+    font-size: 1.4rem;
+    color: #f59e0b;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+  }
+  
+  .info-box h4 {
+    margin: 0 0 0.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  .info-box p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #334155;
+  }
+  
+  /* Why We Ride */
+  .event-why {
+    background: #fef9e6;
+    border-radius: 24px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .event-why p {
+    margin: 0.25rem 0;
+    font-weight: 500;
+  }
+  
+  .event-why i {
+    color: #f59e0b;
+    width: 1.6rem;
+  }
+  
+  /* Partners Section */
+  .event-partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 0;
+    border-top: 1px dashed #e2e8f0;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  
+  .event-partners span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .event-partners span i {
+    color: #f59e0b;
+    font-size: 0.7rem;
+  }
+  
+  /* Footer Buttons */
+  .event-popup-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btn-event {
+    background: #073d27;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 60px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-event-outline {
+    background: transparent;
+    border: 2px solid #073d27;
+    color: #073d27;
+  }
+  
+  .btn-event:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+  }
+  
+  .btn-event-outline:hover {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Timer Progress */
+  .timer-progress {
+    margin-top: 1rem;
+    background: #e2e8f0;
+    border-radius: 30px;
+    height: 6px;
+    overflow: hidden;
+  }
+  
+  .timer-fill {
+    width: 100%;
+    height: 100%;
+    background: #f59e0b;
+    transition: width 0.2s linear;
+  }
+  
+  .auto-close-text {
+    font-size: 0.7rem;
+    text-align: right;
+    margin-top: 0.8rem;
+    color: #64748b;
+  }
+  
+  /* Responsive */
+  @media (max-width: 550px) {
+    .event-popup-card {
+      width: 95%;
+      border-radius: 32px;
+      margin-top: 20px;
+    }
+    
+    .event-popup-header h2 {
+      font-size: 1.5rem;
+    }
+    
+    .event-info-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-route {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .route-steps {
+      font-size: 0.75rem;
+    }
+    
+    .event-popup-footer {
+      flex-direction: column;
+    }
+    
+    .btn-event {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .event-popup-body {
+      padding: 1.2rem;
+    }
+    
+    .event-popup-header {
+      padding: 1rem 1.2rem;
+    }
+  }
