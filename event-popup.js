@@ -1,51 +1,48 @@
-// event-popup.js
-// Event Popup Module - Handles display, auto-close, and interactions
+// event-popup.js - COMPLETELY FIXED (No duplicate issues)
 
 (function() {
     'use strict';
     
-    // Configuration
+    // Prevent multiple executions
+    if (window._eventPopupInitialized) {
+        console.log('Event Popup already initialized, skipping');
+        return;
+    }
+    
     const CONFIG = {
         autoCloseSeconds: 40,
         popupId: 'eventPopupOverlay',
         closeBtnId: 'closeEventPopupBtn',
         joinBtnId: 'eventJoinNowBtn',
+        closeXBtnId: 'eventPopupCloseX',
         countdownSpanId: 'popupCountdown',
         timerFillId: 'popupTimerFill',
-        storageKey: 'eventPopupClosed',
-        eventDate: new Date(2026, 5, 5) // June 5th, 2026
+        localStorageKey: 'eventPopupSeen'
     };
     
-    // DOM Elements
     let popupElement = null;
-    let closeButton = null;
-    let joinButton = null;
-    let countdownSpan = null;
-    let timerFill = null;
-    
-    // Timer variables
     let timerInterval = null;
     let secondsLeft = CONFIG.autoCloseSeconds;
     let startTime = null;
+    let isClosed = false;
     
-    // Check if event has already passed
-    function isEventPassed() {
-        const today = new Date();
-        return today > CONFIG.eventDate;
+    // Check if user has already seen the popup
+    function hasUserSeenPopup() {
+        const seen = localStorage.getItem(CONFIG.localStorageKey);
+        return seen === 'true';
     }
     
-    // Check if popup was already closed in this session
-    function wasPopupClosed() {
-        return sessionStorage.getItem(CONFIG.storageKey) === 'true';
-    }
-    
-    // Mark popup as closed for this session
-    function markPopupClosed() {
-        sessionStorage.setItem(CONFIG.storageKey, 'true');
+    // Mark popup as seen
+    function markPopupAsSeen() {
+        localStorage.setItem(CONFIG.localStorageKey, 'true');
+        console.log('Event Popup: Marked as seen');
     }
     
     // Update timer UI
     function updateTimerUI() {
+        const countdownSpan = document.getElementById(CONFIG.countdownSpanId);
+        const timerFill = document.getElementById(CONFIG.timerFillId);
+        
         if (countdownSpan) {
             countdownSpan.innerText = secondsLeft;
         }
@@ -55,14 +52,17 @@
         }
     }
     
-    // Close the popup with animation
+    // Close the popup
     function closePopup() {
+        if (isClosed) return;
+        isClosed = true;
+        
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
         }
         
-        if (popupElement) {
+        if (popupElement && popupElement.style.display !== 'none') {
             popupElement.classList.add('hidden-popup');
             setTimeout(() => {
                 if (popupElement) {
@@ -72,17 +72,17 @@
         }
     }
     
-    // Start the auto-close countdown timer
+    // Start countdown timer
     function startCountdown() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-        }
+        if (timerInterval) clearInterval(timerInterval);
         
         startTime = Date.now();
         secondsLeft = CONFIG.autoCloseSeconds;
         updateTimerUI();
         
         timerInterval = setInterval(() => {
+            if (isClosed) return;
+            
             const elapsed = (Date.now() - startTime) / 1000;
             const remaining = Math.max(0, CONFIG.autoCloseSeconds - elapsed);
             secondsLeft = Math.floor(remaining);
@@ -92,7 +92,7 @@
                 clearInterval(timerInterval);
                 timerInterval = null;
                 closePopup();
-                markPopupClosed();
+                markPopupAsSeen();
             }
         }, 200);
     }
@@ -100,8 +100,10 @@
     // Handle Join button click
     function onJoinClick(e) {
         e.preventDefault();
+        e.stopPropagation();
         
-        // Show registration/success message
+        if (isClosed) return;
+        
         const message = `🚴‍♂️ Thank you for your interest in the Water Cycles Expedition!\n\n` +
             `📅 Date: 5th June 2026 (World Environment Day)\n` +
             `⏰ Time: 2:00 PM - 4:30 PM\n` +
@@ -113,38 +115,52 @@
             `Together for climate! 🌍💚`;
         
         alert(message);
-        
-        // Optional: track click event
-        console.log('Event Popup: User clicked Join button');
-        
         closePopup();
-        markPopupClosed();
+        markPopupAsSeen();
     }
     
     // Handle Close button click
     function onCloseClick(e) {
         e.preventDefault();
-        closePopup();
-        markPopupClosed();
-        console.log('Event Popup: User dismissed popup');
+        e.stopPropagation();
+        if (!isClosed) {
+            closePopup();
+            markPopupAsSeen();
+        }
     }
     
-    // Handle overlay click (click outside to close)
+    // Handle overlay click
     function onOverlayClick(e) {
-        if (e.target === popupElement) {
+        if (e.target === popupElement && !isClosed) {
             closePopup();
-            markPopupClosed();
+            markPopupAsSeen();
         }
     }
     
     // Initialize event listeners
     function initEventListeners() {
-        if (closeButton) {
-            closeButton.addEventListener('click', onCloseClick);
+        // Get fresh references to buttons
+        const closeBtn = document.getElementById(CONFIG.closeBtnId);
+        const joinBtn = document.getElementById(CONFIG.joinBtnId);
+        const closeXBtn = document.getElementById(CONFIG.closeXBtnId);
+        
+        // Remove existing listeners by replacing with clones
+        if (closeBtn) {
+            const newCloseBtn = closeBtn.cloneNode(true);
+            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+            newCloseBtn.addEventListener('click', onCloseClick);
         }
         
-        if (joinButton) {
-            joinButton.addEventListener('click', onJoinClick);
+        if (joinBtn) {
+            const newJoinBtn = joinBtn.cloneNode(true);
+            joinBtn.parentNode.replaceChild(newJoinBtn, joinBtn);
+            newJoinBtn.addEventListener('click', onJoinClick);
+        }
+        
+        if (closeXBtn) {
+            const newCloseXBtn = closeXBtn.cloneNode(true);
+            closeXBtn.parentNode.replaceChild(newCloseXBtn, closeXBtn);
+            newCloseXBtn.addEventListener('click', onCloseClick);
         }
         
         if (popupElement) {
@@ -152,17 +168,11 @@
         }
     }
     
-    // Show the popup (if conditions are met)
+    // Show the popup
     function showPopup() {
-        // Don't show if event has passed
-        if (isEventPassed()) {
-            console.log('Event Popup: Event date has passed, not showing');
-            return false;
-        }
-        
-        // Don't show if already closed in this session
-        if (wasPopupClosed()) {
-            console.log('Event Popup: Already closed in this session');
+        // Check if user has already seen the popup
+        if (hasUserSeenPopup()) {
+            console.log('Event Popup: User has already seen this popup');
             return false;
         }
         
@@ -173,13 +183,10 @@
             return false;
         }
         
-        // Get button elements
-        closeButton = document.getElementById(CONFIG.closeBtnId);
-        joinButton = document.getElementById(CONFIG.joinBtnId);
-        countdownSpan = document.getElementById(CONFIG.countdownSpanId);
-        timerFill = document.getElementById(CONFIG.timerFillId);
+        // Reset state
+        isClosed = false;
         
-        // Make sure popup is visible
+        // Make popup visible
         popupElement.style.display = 'flex';
         popupElement.classList.remove('hidden-popup');
         
@@ -191,39 +198,55 @@
         return true;
     }
     
-    // Delay popup appearance to allow page to load smoothly
-    function showPopupWithDelay(delayMs = 500) {
+    // Reset popup (for testing)
+    function resetPopup() {
+        localStorage.removeItem(CONFIG.localStorageKey);
+        console.log('Event Popup: Reset');
+        location.reload(); // Reload to see the popup again
+    }
+    
+    // Mark as initialized
+    window._eventPopupInitialized = true;
+    
+    // Wait for popup to be in DOM then show it
+    function waitForAndShowPopup() {
+        // Check if popup element exists
+        if (document.getElementById(CONFIG.popupId)) {
+            setTimeout(showPopup, 500);
+            return;
+        }
+        
+        // Wait for popup to be added to DOM
+        const observer = new MutationObserver(function(mutations) {
+            if (document.getElementById(CONFIG.popupId)) {
+                observer.disconnect();
+                setTimeout(showPopup, 500);
+            }
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        // Fallback timeout
         setTimeout(() => {
-            showPopup();
-        }, delayMs);
+            observer.disconnect();
+            if (document.getElementById(CONFIG.popupId)) {
+                showPopup();
+            }
+        }, 3000);
     }
     
-    // Force show popup (bypass session check - for testing)
-    function forceShowPopup() {
-        sessionStorage.removeItem(CONFIG.storageKey);
-        showPopup();
+    // Start when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', waitForAndShowPopup);
+    } else {
+        waitForAndShowPopup();
     }
     
-    // Reset popup session (for testing/debugging)
-    function resetPopupSession() {
-        sessionStorage.removeItem(CONFIG.storageKey);
-        console.log('Event Popup: Session reset');
-    }
-    
-    // Export functions to global scope for external control if needed
+    // Export for debugging
     window.EventPopup = {
-        show: showPopup,
-        showDelayed: showPopupWithDelay,
-        forceShow: forceShowPopup,
-        resetSession: resetPopupSession,
+        reset: resetPopup,
         close: closePopup
     };
     
-    // Auto-show popup when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => showPopupWithDelay(800));
-    } else {
-        showPopupWithDelay(800);
-    }
-    
+    console.log('Event Popup: Script loaded and ready');
 })();

@@ -78,17 +78,43 @@
       })();
     </script> 
     <script>
-      // Load the popup HTML dynamically
-      fetch('event-popup.html')
-          .then(response => response.text())
-          .then(html => {
-              document.getElementById('eventPopupContainer').innerHTML = html;
-              // Load the popup JS after HTML is injected
-              const script = document.createElement('script');
-              script.src = 'event-popup.js';
-              document.body.appendChild(script);
-          })
-          .catch(error => console.error('Error loading popup:', error));
+      // Load the popup HTML dynamically (ONLY ONCE)
+      (function() {
+          // Check if popup already loaded
+          if (document.getElementById('eventPopupOverlay')) {
+              console.log('Popup already loaded');
+              return;
+          }
+          
+          // Check if we've already attempted to load
+          if (window._popupLoading) {
+              console.log('Popup already loading');
+              return;
+          }
+          
+          window._popupLoading = true;
+          
+          fetch('event-popup.html?' + Date.now())  // Add cache buster
+              .then(response => response.text())
+              .then(html => {
+                  const container = document.getElementById('eventPopupContainer');
+                  if (container && !container.innerHTML.includes('eventPopupOverlay')) {
+                      container.innerHTML = html;
+                      console.log('Popup HTML loaded');
+                      
+                      // Load the popup JS only once
+                      if (!document.querySelector('script[src="event-popup.js"]')) {
+                          const script = document.createElement('script');
+                          script.src = 'event-popup.js';
+                          script.onload = function() {
+                              console.log('Popup JS loaded and executed');
+                          };
+                          document.body.appendChild(script);
+                      }
+                  }
+              })
+              .catch(error => console.error('Error loading popup:', error));
+      })();
   </script>
 <div id="eventPopupContainer"></div>
     <!-- Top Bar -->
