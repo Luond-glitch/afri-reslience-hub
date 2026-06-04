@@ -9,7 +9,6 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,6 +41,7 @@
     
   </head>
   <body>
+
     <!-- Preloader -->
     <script>
       (function() {
@@ -74,8 +74,7 @@
           document.head.appendChild(style);
         }
       })();
-    </script>  
-
+    </script> 
     <!-- Top Bar -->
     <div class="topbar">
       <div class="container">
@@ -1134,6 +1133,7 @@ Increased youth participation in sustainable agriculture, diversified income str
     <div class="videos-grid">
 
       <!-- Featured Video -->
+      <a href="https://youtu.be/N3-b7_uJGAU" target="_blank" class="video-link">
       <div class="video-card featured-video" data-aos="fade-up" data-aos-delay="100">
         <video controls preload="metadata" poster="videos/images/logo.jpeg">
           <source src="gil.mp4" type="video/mp4">
@@ -1147,7 +1147,7 @@ Increased youth participation in sustainable agriculture, diversified income str
           </p>
         </div>
       </div>
-
+      </a>
       <!-- Video 2 -->
       <div class="video-card" data-aos="fade-up" data-aos-delay="150">
         <video controls preload="metadata" poster="videos/images/blue economy.jpg">
@@ -1426,7 +1426,100 @@ Increased youth participation in sustainable agriculture, diversified income str
         }
       }
     </script>
-
+    <script>
+      // -------------------------------------------------------------
+      // POPUP LOGIC: FIRST ON SCREEN - 20 SECONDS AUTO DISMISS + FULL EVENT INFO
+      // -------------------------------------------------------------
+      (function() {
+        const popupOverlay = document.getElementById('eventPriorityPopup');
+        const progressBar = document.getElementById('eventTimerProgress');
+        const countdownSpan = document.getElementById('eventCountdownSpan');
+        const closeBtn = document.getElementById('closeEventPopupBtn');
+        const joinBtn = document.getElementById('eventJoinBtn');
+        
+        let timeLeft = 20;
+        let interval = null;
+        let startTimestamp = Date.now();
+    
+        function updateUI() {
+          if (countdownSpan) countdownSpan.innerText = timeLeft;
+          if (progressBar) {
+            let percent = (timeLeft / 20) * 100;
+            progressBar.style.width = percent + '%';
+          }
+        }
+    
+        function closePopupNow() {
+          if (interval) clearInterval(interval);
+          if (popupOverlay) {
+            popupOverlay.classList.add('hidden-popup');
+            popupOverlay.style.display = 'none';
+          }
+        }
+    
+        function startTimer() {
+          if (interval) clearInterval(interval);
+          interval = setInterval(() => {
+            const elapsed = (Date.now() - startTimestamp) / 1000;
+            const remaining = Math.max(0, 20 - elapsed);
+            timeLeft = Math.floor(remaining);
+            updateUI();
+            if (timeLeft <= 0) {
+              clearInterval(interval);
+              interval = null;
+              closePopupNow();
+            }
+          }, 200);
+        }
+    
+        if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); closePopupNow(); });
+        if (joinBtn) joinBtn.addEventListener('click', () => { closePopupNow(); });
+        if (popupOverlay) {
+          popupOverlay.addEventListener('click', (e) => { if (e.target === popupOverlay) closePopupNow(); });
+        }
+        
+        updateUI();
+        startTimer();
+        
+        // Remove body preloader opacity & ensure popup visible at top
+        document.body.style.opacity = '1';
+        const oldPreloader = document.getElementById('preloader');
+        if(oldPreloader) oldPreloader.remove();
+        
+        // Ensure any existing event popup does not conflict
+        const existingEventDiv = document.getElementById('eventPopup');
+        if(existingEventDiv) existingEventDiv.style.display = 'none';
+      })();
+    
+      // Initialize AOS and Counters & Leaflet map after DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
+        const counters = document.querySelectorAll('.count');
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            let current = parseInt(counter.innerText) || 0;
+            const increment = target / 45;
+            if (current < target) {
+              current = Math.min(Math.ceil(current + increment), target);
+              counter.innerText = current;
+              setTimeout(updateCount, 30);
+            } else { counter.innerText = target; }
+          };
+          updateCount();
+        });
+        if (typeof L !== 'undefined' && document.getElementById('map')) {
+          const map = L.map('map').setView([-0.0917, 34.768], 13);
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>' }).addTo(map);
+          L.marker([-0.0917, 34.768]).addTo(map).bindPopup('<b>ARHICA Office</b><br>Palmers Hotel, Kisumu').openPopup();
+        }
+        document.getElementById('year') && (document.getElementById('year').innerText = new Date().getFullYear());
+      });
+    </script>
+    
+    <!-- original eventPopup placeholder (disabled) -->
+    <div id="eventPopup" style="display:none;"></div>
+    
     <script src="script.js"></script>
   </body>
 </html>
