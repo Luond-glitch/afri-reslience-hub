@@ -29,7 +29,7 @@
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="event-popup.js"></script>
+    
 
     <!-- AOS Animation -->
     <link
@@ -39,7 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="event-popup.css">
+    
     
   </head>
   <body>
@@ -77,46 +77,7 @@
         }
       })();
     </script> 
-    <script>
-      // Load the popup HTML dynamically (ONLY ONCE)
-      (function() {
-          // Check if popup already loaded
-          if (document.getElementById('eventPopupOverlay')) {
-              console.log('Popup already loaded');
-              return;
-          }
-          
-          // Check if we've already attempted to load
-          if (window._popupLoading) {
-              console.log('Popup already loading');
-              return;
-          }
-          
-          window._popupLoading = true;
-          
-          fetch('event-popup.html?' + Date.now())  // Add cache buster
-              .then(response => response.text())
-              .then(html => {
-                  const container = document.getElementById('eventPopupContainer');
-                  if (container && !container.innerHTML.includes('eventPopupOverlay')) {
-                      container.innerHTML = html;
-                      console.log('Popup HTML loaded');
-                      
-                      // Load the popup JS only once
-                      if (!document.querySelector('script[src="event-popup.js"]')) {
-                          const script = document.createElement('script');
-                          script.src = 'event-popup.js';
-                          script.onload = function() {
-                              console.log('Popup JS loaded and executed');
-                          };
-                          document.body.appendChild(script);
-                      }
-                  }
-              })
-              .catch(error => console.error('Error loading popup:', error));
-      })();
-  </script>
-<div id="eventPopupContainer"></div>
+    
     <!-- Top Bar -->
     
     <div class="topbar">
@@ -1469,100 +1430,6 @@ Increased youth participation in sustainable agriculture, diversified income str
         }
       }
     </script>
-    <script>
-      // -------------------------------------------------------------
-      // POPUP LOGIC: FIRST ON SCREEN - 20 SECONDS AUTO DISMISS + FULL EVENT INFO
-      // -------------------------------------------------------------
-      (function() {
-        const popupOverlay = document.getElementById('eventPriorityPopup');
-        const progressBar = document.getElementById('eventTimerProgress');
-        const countdownSpan = document.getElementById('eventCountdownSpan');
-        const closeBtn = document.getElementById('closeEventPopupBtn');
-        const joinBtn = document.getElementById('eventJoinBtn');
-        
-        let timeLeft = 20;
-        let interval = null;
-        let startTimestamp = Date.now();
-    
-        function updateUI() {
-          if (countdownSpan) countdownSpan.innerText = timeLeft;
-          if (progressBar) {
-            let percent = (timeLeft / 20) * 100;
-            progressBar.style.width = percent + '%';
-          }
-        }
-    
-        function closePopupNow() {
-          if (interval) clearInterval(interval);
-          if (popupOverlay) {
-            popupOverlay.classList.add('hidden-popup');
-            popupOverlay.style.display = 'none';
-          }
-        }
-    
-        function startTimer() {
-          if (interval) clearInterval(interval);
-          interval = setInterval(() => {
-            const elapsed = (Date.now() - startTimestamp) / 1000;
-            const remaining = Math.max(0, 20 - elapsed);
-            timeLeft = Math.floor(remaining);
-            updateUI();
-            if (timeLeft <= 0) {
-              clearInterval(interval);
-              interval = null;
-              closePopupNow();
-            }
-          }, 200);
-        }
-    
-        if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); closePopupNow(); });
-        if (joinBtn) joinBtn.addEventListener('click', () => { closePopupNow(); });
-        if (popupOverlay) {
-          popupOverlay.addEventListener('click', (e) => { if (e.target === popupOverlay) closePopupNow(); });
-        }
-        
-        updateUI();
-        startTimer();
-        
-        // Remove body preloader opacity & ensure popup visible at top
-        document.body.style.opacity = '1';
-        const oldPreloader = document.getElementById('preloader');
-        if(oldPreloader) oldPreloader.remove();
-        
-        // Ensure any existing event popup does not conflict
-        const existingEventDiv = document.getElementById('eventPopup');
-        if(existingEventDiv) existingEventDiv.style.display = 'none';
-      })();
-    
-      // Initialize AOS and Counters & Leaflet map after DOM ready
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
-        const counters = document.querySelectorAll('.count');
-        counters.forEach(counter => {
-          const updateCount = () => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            let current = parseInt(counter.innerText) || 0;
-            const increment = target / 45;
-            if (current < target) {
-              current = Math.min(Math.ceil(current + increment), target);
-              counter.innerText = current;
-              setTimeout(updateCount, 30);
-            } else { counter.innerText = target; }
-          };
-          updateCount();
-        });
-        if (typeof L !== 'undefined' && document.getElementById('map')) {
-          const map = L.map('map').setView([-0.0917, 34.768], 13);
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>' }).addTo(map);
-          L.marker([-0.0917, 34.768]).addTo(map).bindPopup('<b>ARHICA Office</b><br>Palmers Hotel, Kisumu').openPopup();
-        }
-        document.getElementById('year') && (document.getElementById('year').innerText = new Date().getFullYear());
-      });
-    </script>
-    
-    <!-- original eventPopup placeholder (disabled) -->
-    <div id="eventPopup" style="display:none;"></div>
-    
     <script src="script.js"></script>
   </body>
 </html>
