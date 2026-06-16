@@ -1,16 +1,3 @@
-/* ========================================
-   ARHICA - Modern Website JS
-   Includes: AOS, Leaflet map, sliders,
-   counters, Jetsmail integration, modal
-======================================== */
-
-// ── PRELOADER ──────────────────────────────────
-/*window.addEventListener('load', () => {
-  setTimeout(() => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) preloader.classList.add('hidden');
-  }, 1000);
-});*/
 
 document.body.classList.add('preloader-active');
 
