@@ -1,37 +1,4 @@
 
-document.body.classList.add('preloader-active');
-
-function hidePreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader && !preloader.classList.contains('hidden')) {
-        preloader.classList.add('hidden');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            document.body.classList.remove('preloader-active');
-            document.body.style.overflow = '';
-            // Force AOS refresh if needed
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
-            }
-        }, 600);
-    }
-}
-
-// Check if all resources are loaded
-if (document.readyState === 'complete') {
-    setTimeout(hidePreloader, 500);
-} else {
-    window.addEventListener('load', () => {
-        // Wait a bit longer for images to render
-        setTimeout(hidePreloader, 800);
-    });
-}
-
-// Emergency fallback - force hide after 4 seconds
-setTimeout(() => {
-    hidePreloader();
-}, 4000);
-
 // ── YEAR ──────────────────────────────────────
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -46,48 +13,51 @@ if (typeof AOS !== 'undefined') {
     offset: 60
   });
 }
-
-
 // ── HERO PARTICLES ────────────────────────────
 (function createParticles() {
+
   const container = document.getElementById('heroParticles');
+
   if (!container) return;
-  for (let i = 0; i < 18; i++) {
+
+  const particleCount = window.innerWidth < 768 ? 8 : 18;
+
+  for (let i = 0; i < particleCount; i++) {
+
     const p = document.createElement('div');
     p.className = 'particle';
+
     const size = Math.random() * 80 + 20;
+
     p.style.cssText = `
-      width:${size}px;height:${size}px;
+      width:${size}px;
+      height:${size}px;
       left:${Math.random()*100}%;
       animation-duration:${Math.random()*15+10}s;
       animation-delay:${Math.random()*10}s;
     `;
+
     container.appendChild(p);
   }
+
 })();
 
 
 // ── HEADER SCROLL ─────────────────────────────
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-  // Back to top
-  const btn = document.getElementById('backToTop');
-  if (btn) {
-    if (window.scrollY > 400) btn.classList.add('visible');
-    else btn.classList.remove('visible');
-  }
-}, { passive: true });
-
-
-// ── BACK TO TOP ───────────────────────────────
 const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+
+window.addEventListener('scroll', () => {
+
+  if (header) {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }
+
+}, { passive: true });
 
 
 // ── MOBILE NAV ────────────────────────────────
@@ -431,3 +401,10 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+// Lazy-load images that are not already lazy loaded
+document.querySelectorAll('img').forEach(img => {
+  if (!img.hasAttribute('loading')) {
+    img.setAttribute('loading', 'lazy');
+  }
+});
