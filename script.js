@@ -192,97 +192,10 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('.hero-stats, .stats-section').forEach(el => countObserver.observe(el));
-
-// ── LEAFLET MAP ───────────────────────────────
-(function initMap() {
-  const mapEl = document.getElementById('map');
-  if (!mapEl || typeof L === 'undefined') return;
-
-  // Palmers Hotel, Kisumu coordinates
-  const coords = [-0.1022, 34.7617];
-
-  const map = L.map('map', {
-    center: coords,
-    zoom: 15,
-    scrollWheelZoom: false,
-    zoomControl: true
-  });
-
-  // Tile layer — CartoDB Positron (clean, light style)
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 19
-  }).addTo(map);
-
-  // Custom marker icon
-  const customIcon = L.divIcon({
-    className: '',
-    html: `
-      <div style="
-        width:48px;height:48px;
-        background:linear-gradient(135deg,#0b5e3e,#1a7a52);
-        border-radius:50% 50% 50% 0;
-        transform:rotate(-45deg);
-        border:3px solid white;
-        box-shadow:0 4px 16px rgba(0,0,0,0.25);
-        display:flex;align-items:center;justify-content:center;
-      ">
-        <div style="transform:rotate(45deg);color:white;font-size:18px;margin-left:2px;margin-top:2px;">
-          <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='white'>
-            <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/>
-          </svg>
-        </div>
-      </div>
-    `,
-    iconSize: [48, 48],
-    iconAnchor: [24, 48],
-    popupAnchor: [0, -52]
-  });
-
-  // Marker + popup
-  L.marker(coords, { icon: customIcon })
-    .addTo(map)
-    .bindPopup(`
-      <div class="popup-content" style="font-family:'DM Sans',sans-serif;min-width:200px;padding:4px;">
-        <h4 style="color:#0b5e3e;font-size:1rem;margin-bottom:6px;font-family:'Playfair Display',serif;">
-          ARHICA — Palmers Hotel
-        </h4>
-        <p style="color:#4b5563;font-size:0.85rem;margin-bottom:8px;">
-          <strong>Oginga Odinga St, Kisumu City</strong><br>
-          Lake Victoria Basin, Kenya
-        </p>
-        <p style="color:#4b5563;font-size:0.82rem;margin-bottom:8px;">
-          📞 +254728697188<br>
-          ✉️ arhicakis@gmail.com
-        </p>
-        <a href="https://maps.google.com/?q=Palmers+Hotel+Kisumu+Kenya" target="_blank"
-          style="display:inline-block;background:#0b5e3e;color:white;
-          padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:600;text-decoration:none;">
-          Get Directions
-        </a>
-      </div>
-    `, { className: 'custom-popup', maxWidth: 280 })
-    .openPopup();
-
-  // Lake Victoria region area circle
-  L.circle([-0.1022, 34.7617], {
-    color: '#0b5e3e',
-    fillColor: '#1a7a52',
-    fillOpacity: 0.07,
-    weight: 2,
-    dashArray: '6 4',
-    radius: 400
-  }).addTo(map);
-
   // Enable scroll on click
   map.on('click', () => map.scrollWheelZoom.enable());
   map.on('mouseout', () => map.scrollWheelZoom.disable());
-})();
-
-
 // ── NEWSLETTER — JETSMAIL ─────────────────────
-// Uses Jetsmail HTTP API (replace LIST_ID and API_KEY with your credentials)
 const JETSMAIL_API_KEY = 'YOUR_JETSMAIL_API_KEY';
 const JETSMAIL_LIST_ID = 'YOUR_LIST_ID';
 const JETSMAIL_API_URL = 'https://api.jetsmail.net/v1/subscribers'; // Adjust to Jetsmail's actual endpoint
@@ -365,13 +278,6 @@ function submitContactForm(name, email, message) {
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
   window.open(`mailto:arhicakis@gmail.com?subject=${subject}&body=${body}`);
 }
-
-
-// ── PYTHON BACKEND NOTE ─────────────────────
-// For the Python backend (Flask/FastAPI), create backend.py:
-// This handles: form submissions, newsletter relay to Jetsmail
-// See backend.py for the full implementation.
-
 
 // ── INTERSECTION OBSERVER FALLBACK ───────────
 // For browsers without AOS, ensure .in-view class is applied
